@@ -2250,6 +2250,7 @@ function initQuizSection() {
 
     dsaTopics.forEach((topic, index) => {
       const topicKey = getQuizTopicKey(topic);
+      if (!topicKey) return;
       const card = document.createElement("div");
       card.className = "quiz-card animate-in";
       card.style.animationDelay = `${index * 0.1}s`;

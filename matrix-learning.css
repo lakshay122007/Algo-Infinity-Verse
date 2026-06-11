@@ -57,7 +57,7 @@
   background: rgba(0,0,0,0.3); padding: 0.5rem 1rem; border-bottom: 1px solid var(--glass-border);
 }
 .matrix-code-lang {
-  font-family: Fira Code, monospace; font-size: 0.75rem; font-weight: 500;
+  font-family: "Fira Code", monospace; font-size: 0.75rem; font-weight: 500;
   color: var(--primary-light); text-transform: uppercase; letter-spacing: 0.05em;
 }
 .matrix-code-copy {
@@ -68,7 +68,7 @@
 .matrix-code-copy:hover { color: var(--text-primary); border-color: var(--primary-light); }
 .matrix-code-copy.copied { color: #22c55e; border-color: #22c55e; }
 .matrix-code-block pre { margin: 0; padding: 1.25rem 1.5rem; background: #0d1117; overflow-x: auto; }
-.matrix-code-block code { font-family: Fira Code, Consolas, Monaco, monospace; font-size: 0.85rem; line-height: 1.7; color: #e6edf3; }
+.matrix-code-block code { font-family: "Fira Code", Consolas, Monaco, monospace; font-size: 0.85rem; line-height: 1.7; color: #e6edf3;}
 .matrix-code-block .tok-kw { color: #c792ea; font-weight: bold; }
 .matrix-code-block .tok-fn { color: #82aaff; }
 .matrix-code-block .tok-str { color: #c3e88d; }
