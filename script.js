@@ -1044,7 +1044,35 @@ const dsaTopics = [
       "Fibonacci Number",
     ],
   },
+  {
+    id: 8,
+    name: "Shortest Path",
+    icon: "🛣️",
+    description: "Dijkstra's, Bellman-Ford, and Floyd-Warshall algorithms for finding optimal paths in graphs",
+    difficulty: "Medium-Hard",
+    theory: `
+    <h3 style="color:var(--accent); margin-bottom:1rem;">🛣️ Shortest Path — Graph Optimization</h3>
+    <p style="margin-bottom:1rem;">Shortest path algorithms find the <strong>minimum cost route</strong> between nodes in a weighted graph.</p>
+    <h4 style="color:var(--primary); margin:1rem 0 0.5rem;">⚡ Algorithm Comparison</h4>
+    <table style="width:100%; border-collapse:collapse; margin-bottom:1rem; font-size:0.9rem;">
+      <tr style="background:var(--dark-card);"><th style="padding:0.5rem 1rem; text-align:left; border:1px solid var(--glass-border);">Algorithm</th><th style="padding:0.5rem 1rem; text-align:left; border:1px solid var(--glass-border);">Time</th></tr>
+      <tr><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">Dijkstra's</td><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border); color:#22c55e;">O((V+E) log V) ✅</td></tr>
+      <tr style="background:var(--dark-card);"><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">Bellman-Ford</td><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">O(V×E)</td></tr>
+      <tr><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">Floyd-Warshall</td><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">O(V³)</td></tr>
+    </table>
+    <h4 style="color:var(--primary); margin:1rem 0 0.5rem;">🎯 When to Use What</h4>
+    <ul style="list-style:none; padding:0; margin-bottom:1rem;">
+      <li style="padding:0.3rem 0;">→ <strong>Dijkstra's</strong> — non-negative weights, single source</li>
+      <li style="padding:0.3rem 0;">→ <strong>Bellman-Ford</strong> — negative weights, negative cycle detection</li>
+      <li style="padding:0.3rem 0;">→ <strong>Floyd-Warshall</strong> — all-pairs shortest paths</li>
+    </ul>
+    <h4 style="color:var(--primary); margin:1rem 0 0.5rem;">🏆 Real Interview Questions from FAANG</h4>
+    <p style="color:var(--text-secondary);">Network Delay Time (Amazon), Cheapest Flights (Google), Path with Min Effort (Meta)</p>
+    `,
+    problems: ["Network Delay Time", "Cheapest Flights Within K Stops", "Path With Minimum Effort", "Find the City With Smallest Neighbors", "Shortest Path in Binary Matrix"],
+  },
 ];
+
 
 const practiceProblems = [
   {
