@@ -352,6 +352,7 @@ function initPlayground() {
 
   /* ── Build iframe HTML ── */
   function buildIframeHTML(userCode) {
+   const escapedUserCode = userCode.replace(/<\/script/gi, "<\\/script");
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -378,7 +379,7 @@ function initPlayground() {
     })();
 
     try {
-      ${userCode}
+      ${escapedUserCode}
     } catch(e) {
       window.parent.postMessage({ type: 'rp-console', level: 'error', msg: e.message }, '*');
       document.getElementById('root').innerHTML = '<div style="color:#ef4444;padding:1rem;font-family:monospace;"><strong>Error:</strong> ' + e.message + '</div>';
