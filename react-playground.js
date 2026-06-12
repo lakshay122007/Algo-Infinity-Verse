@@ -88,7 +88,23 @@ function initNavbar() {
     let hoverTimeout;
     parent.addEventListener("mouseenter", () => { if (!isMobile()) { clearTimeout(hoverTimeout); parent.classList.add("open"); toggle.setAttribute("aria-expanded", "true"); } });
     parent.addEventListener("mouseleave", () => { if (!isMobile()) { hoverTimeout = setTimeout(() => { parent.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }, 250); } });
-    toggle.addEventListener("click", (e) => { if (isMobile()) { e.preventDefault(); e.stopPropagation(); const isOpen = parent.classList.toggle("open"); toggle.setAttribute("aria-expanded", isOpen); } });
+    const toggleDropdown = () => {
+      const isOpen = parent.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    };
+
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isMobile() || e.detail === 0) toggleDropdown(); // include keyboard activation on desktop
+    });
+
+    toggle.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleDropdown();
+      }
+    });
   });
 
   window.addEventListener("scroll", () => {
