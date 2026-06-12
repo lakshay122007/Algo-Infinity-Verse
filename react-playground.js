@@ -374,9 +374,16 @@ function initPlayground() {
 
   /* ── Listen for console messages from iframe ── */
   window.addEventListener("message", (e) => {
+    if (e.source !== preview.contentWindow) return;
     if (!e.data || e.data.type !== "rp-console") return;
-    logToConsole(e.data.msg, e.data.level);
-    if (e.data.level === "error") setStatus("error");
+
+    const level = ["log", "warn", "error", "success", "info"].includes(e.data.level)
+      ? e.data.level
+      : "log";
+    const msg = typeof e.data.msg === "string" ? e.data.msg : String(e.data.msg);
+
+    logToConsole(msg, level);
+    if (level === "error") setStatus("error");
   });
 
   /* ── Console logger ── */
