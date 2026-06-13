@@ -79,15 +79,28 @@ function initNavbar() {
 const PISTON_URL = "https://emkc.org/api/v2/piston/execute";
 
 async function executeRuby(code) {
-  const response = await fetch(PISTON_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      language: "ruby",
-      version: "3.0.0",
-      files: [{ name: "main.rb", content: code }]
-    })
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  let response;
+  try {
+    response = await fetch(PISTON_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        language: "ruby",
+        version: "3.0.0",
+        files: [{ name: "main.rb", content: code }]
+      }),
+      signal: controller.signal
+    });
+  } catch (err) {
+    if (err.name === "AbortError") {
+      throw new Error("Execution timed out while waiting for Piston API.");
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (!response.ok) {
     throw new Error(`Piston API error: ${response.status} ${response.statusText}`);
@@ -302,8 +315,8 @@ function initRubyEditor() {
   /* ── Run Code ── */
   async function runCode() {
     if (isRunning) return;
-    const code = editor.value.trim();
-    if (!code) return;
+    const code = editor.value;
+    if (!code.trim()) return;
 
     isRunning = true;
     runBtn.disabled = true;

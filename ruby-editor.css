@@ -168,7 +168,7 @@
 }
 
 .re-lang-badge {
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.7rem;
   color: #cc342d;
   background: rgba(204, 52, 45, 0.1);
@@ -196,7 +196,7 @@
   border-right: 1px solid var(--glass-border);
   padding: 1rem 0.5rem;
   text-align: right;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.8rem;
   line-height: 1.6;
   color: var(--text-secondary);
@@ -210,7 +210,7 @@
   flex: 1;
   background: #0d1117;
   color: #e6edf3;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.85rem;
   line-height: 1.6;
   padding: 1rem 1.25rem;
@@ -228,7 +228,7 @@
 .re-output-body {
   flex: 1;
   padding: 1rem 1.25rem;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.85rem;
   line-height: 1.7;
   color: #e6edf3;
@@ -281,7 +281,7 @@
   overflow-y: auto;
   padding: 0.75rem 1rem;
   background: #0d1117;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.8rem;
   line-height: 1.6;
 }
