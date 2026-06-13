@@ -130,9 +130,9 @@
             <button id="peDownloadBtn" class="pe-icon-btn" title="Download .php file" aria-label="Download PHP file"><i class="fas fa-download"></i></button>
             <input id="peFileInput" type="file" accept=".php" hidden />
             <button id="peRunBtn" class="btn btn-primary pe-run-btn"><i class="fas fa-play"></i> Run</button>
-            <button id="peResetBtn" class="pe-icon-btn" title="Reset"><i class="fas fa-undo"></i></button>
-            <button id="peCopyBtn" class="pe-icon-btn" title="Copy code"><i class="fas fa-copy"></i></button>
-            <button id="peSaveBtn" class="pe-icon-btn" title="Save to localStorage"><i class="fas fa-save"></i></button>
+            <button id="peResetBtn" class="pe-icon-btn" title="Reset" aria-label="Reset to example"><i class="fas fa-undo"></i></button>
+            <button id="peCopyBtn" class="pe-icon-btn" title="Copy code" aria-label="Copy code to clipboard"><i class="fas fa-copy"></i></button>
+            <button id="peSaveBtn" class="pe-icon-btn" title="Save to localStorage" aria-label="Save code to browser storage"><i class="fas fa-save"></i></button>
           </div>
         </div>
 
@@ -144,7 +144,7 @@
             </div>
             <div class="pe-editor-wrap">
               <div class="pe-line-numbers" id="peLineNumbers">1</div>
-              <textarea id="peEditor" class="pe-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+              <textarea id="peEditor" class="pe-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="PHP code editor"></textarea>
             </div>
           </div>
 

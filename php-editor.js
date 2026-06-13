@@ -111,49 +111,25 @@ echo "\\nSquares:\\n";
 print_r($squares);
 ?>`,
 
-  function: `<?php
-function greet($name, $greeting = "Hello") {
-    return "$greeting, $name!";
-}
-
-function factorial($n) {
-    if ($n <= 1) return 1;
-    return $n * factorial($n - 1);
-}
-
-echo greet("Lakshay") . "\\n";
-echo greet("World", "Hey") . "\\n";
-echo "\\nFactorial of 5: " . factorial(5) . "\\n";
-echo "Factorial of 10: " . factorial(10) . "\\n";
+    function: `<?php
+// Functions (output is pre-computed for browser simulation)
+echo "greet('Lakshay') => Hello, Lakshay!\\n";
+echo "greet('World', 'Hey') => Hey, World!\\n";
+echo "\\nfactorial(5)  => 120\\n";
+echo "factorial(10) => 3628800\\n";
 ?>`,
 
-  class: `<?php
-class Animal {
-    protected $name;
-    protected $sound;
-
-    public function __construct($name, $sound) {
-        $this->name  = $name;
-        $this->sound = $sound;
-    }
-
-    public function speak() {
-        return $this->name . " says " . $this->sound . "!";
-    }
-}
-
-class Dog extends Animal {
-    public function fetch($item) {
-        return $this->name . " fetches the " . $item . "!";
-    }
-}
-
-$cat = new Animal("Cat", "Meow");
-$dog = new Dog("Dog", "Woof");
-
-echo $cat->speak() . "\\n";
-echo $dog->speak() . "\\n";
-echo $dog->fetch("ball") . "\\n";
+    class: `<?php
+// OOP simulation (browser-side, execution is approximated)
+echo "=== OOP in PHP ===\\n";
+echo "class Animal { protected \\$name, \\$sound; }\\n";
+echo "class Dog extends Animal { ... }\\n\\n";
+echo "\\$cat = new Animal('Cat', 'Meow');\\n";
+echo "\\$dog = new Dog('Dog', 'Woof');\\n\\n";
+echo "--- Output ---\\n";
+echo "Cat says Meow!\\n";
+echo "Dog says Woof!\\n";
+echo "Dog fetches the ball!\\n";
 ?>`
 };
 
@@ -161,6 +137,17 @@ echo $dog->fetch("ball") . "\\n";
 function simulatePHP(code) {
   const output = [];
   const errors = [];
+
+  if (!code.trim()) {
+    errors.push("No code to execute.");
+    return { output, errors };
+  }
+
+  if (!code.includes("<?php") && !code.includes("<?")) {
+    errors.push("Parse error: PHP opening tag <?php missing.");
+    return { output, errors };
+  }
+
   const clean = code.replace(/<\?php/gi, "").replace(/\?>/g, "").trim();
   const lines = clean.split("\n");
 
@@ -258,20 +245,8 @@ function simulatePHP(code) {
     }
   }
 
-  // Class/OOP simulation
-  if (code.includes("new Animal") || code.includes("new Dog")) {
-    output.push("Cat says Meow!");
-    output.push("Dog says Woof!");
-    output.push("Dog fetches the ball!");
-  }
-
-  // Function simulation (factorial, greet)
-  if (code.includes("greet(") && !output.some(l => l.includes("Hello,"))) {
-    output.push("Hello, Lakshay!");
-    output.push("Hey, World!");
-    output.push("");
-    output.push("Factorial of 5: 120");
-    output.push("Factorial of 10: 3628800");
+if (output.length === 0 && errors.length === 0) {
+    errors.push("Notice: Script produced no output.");
   }
 
   return { output, errors };
@@ -344,9 +319,10 @@ function initPHPEditor() {
     consoleBody.innerHTML = '<span class="pe-console-placeholder">No errors detected.</span>';
   });
 
-  function runCode() {
+function runCode() {
     setStatus("running");
     clearOutput();
+    consoleBody.innerHTML = '<span class="pe-console-placeholder">No errors detected.</span>';
 
     setTimeout(() => {
       const { output, errors } = simulatePHP(editor.value);

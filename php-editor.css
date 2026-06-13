@@ -38,7 +38,7 @@
 .pe-toolbar-left, .pe-toolbar-right { display: flex; align-items: center; gap: 0.75rem; }
 
 .pe-label {
-  font-family: "Orbitron", sans-serif;
+  font-family: Orbitron, sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   color: #8993be;
@@ -117,7 +117,7 @@
 }
 
 .pe-lang-badge {
-  font-family: "Fira Code", monospace;
+  font-family: Fira Code, monospace;
   font-size: 0.7rem;
   color: #8993be;
   background: rgba(137, 147, 190, 0.1);
@@ -217,7 +217,7 @@
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
 }
 .pe-console-clear:hover { color: #ef4444; }
 .pe-console-body {
