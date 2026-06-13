@@ -322,14 +322,16 @@ function initRubyEditor() {
         outputBody.innerHTML = '<span class="re-output-placeholder">No output produced.</span>';
       }
 
-      // Show stderr
-      if (stderr.trim()) {
+      // Show stderr / exit status
+      const hasStderr = stderr.trim().length > 0;
+      if (hasStderr) {
         consoleBody.innerHTML = "";
         stderr.trim().split("\n").forEach((line) => logError(line));
-        setStatus("error");
-      } else {
-        setStatus("ready");
       }
+      if (exitCode !== 0 && !hasStderr) {
+        logError(`Process exited with code ${exitCode}.`);
+      }
+      setStatus(exitCode === 0 && !hasStderr ? "ready" : "error");
 
     } catch (err) {
       outputBody.innerHTML = '<span class="re-output-placeholder">Could not reach Piston API. Check your connection.</span>';
