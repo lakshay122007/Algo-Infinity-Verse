@@ -234,7 +234,7 @@ function simulateScala(code) {
     output.push("Lambda: 1, 4, 9, 16, 25");
   } else if (code.includes("class Animal") && code.includes("case class Point")) {
     output.push("Cat says Meow!");
-    output.push("Woof says Woof!");
+    output.push("Rex says Woof!");
     output.push("Rex fetches the ball!");
     output.push("\nDistance from Point(0.0,0.0) to Point(3.0,4.0): 5.0");
   } else if (code.includes("def describe") && code.includes("sealed trait Shape")) {
@@ -281,6 +281,7 @@ function initScalaEditor() {
   const consoleClear  = document.getElementById("seConsoleClear");
 
   const SAVE_KEY = "scala-editor-draft";
+  let runSeq = 0;
   const saved = localStorage.getItem(SAVE_KEY);
   editor.value = (saved && saved.trim().length > 0) ? saved : SCALA_EXAMPLES.hello;
   updateLines();
@@ -333,12 +334,14 @@ function initScalaEditor() {
     consoleBody.innerHTML = '<span class="se-console-placeholder">No errors detected.</span>';
   });
 
-  function runCode() {
+function runCode() {
+    const seq = ++runSeq;
     setStatus("running");
     outputBody.innerHTML = '<span class="se-output-placeholder">Running...</span>';
     consoleBody.innerHTML = '<span class="se-console-placeholder">No errors detected.</span>';
 
     setTimeout(() => {
+      if (seq !== runSeq) return;
       const { output, errors } = simulateScala(editor.value);
 
       if (output.length > 0) {
