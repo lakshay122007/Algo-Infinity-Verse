@@ -3897,11 +3897,9 @@ body {
     overflow: hidden;
     cursor: pointer;
     pointer-events: auto !important;
-
     display: flex;
   flex-direction: column;
   min-height: 320px;
-
 }
 .start-quiz-btn {
     pointer-events: auto !important;
@@ -3918,7 +3916,7 @@ body {
     height: 3px;
     background: var(--gradient-4);
 } */
-
+ 
 .quiz-card::before {
   content: "";
   position: absolute;
@@ -3928,7 +3926,6 @@ body {
   height: 3px;
   background: var(--gradient-4);
 }
-
 
 
 .quiz-card:hover {
@@ -3957,12 +3954,10 @@ body {
     line-height: 1.6;
     pointer-events: none;
 
-
   color: var(--text-secondary);
   font-size: 0.95rem;
   margin-bottom: 1rem;
   line-height: 1.6;
-
 
 }
 
@@ -5447,88 +5442,7 @@ body.light-mode {
 }
 .quiz-card * {
     position: relative;
-
 }
-
-.tree-box {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-}
-
-.tree-box {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-}
-
-.tree-visual {
-    font-family: "Fira Code", monospace;
-    background: #0f172a;
-    color: #00ffcc;
-    padding: 16px 20px;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    font-size: 15px;
-    line-height: 1.6;
-
-    white-space: pre;
-    display: inline-block;
-
-    min-width: 260px;
-    text-align: center;
-}
-.tree-box{
-    display:flex;
-    justify-content:center;
-    margin:20px 0;
-}
-
-.tree-visual{
-    font-family: "Fira Code", monospace;
-    background:#0f172a;
-    color:#00ffcc;
-    padding:16px;
-    border-radius:10px;
-    border:1px solid #334155;
-    white-space:pre;
-    line-height:1.6;
-    font-size:15px;
-}
-/* Welcome Banner */
-.welcome-banner {
-    position: fixed;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #1f2937;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    z-index: 10000;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-.welcome-banner button {
-    border: none;
-    background: #ef4444;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.welcome-banner button:hover {
-    opacity: 0.8;
-}
-
-.hidden {
-    display: none;
-}
-
 
 @media (max-width: 768px) {
   .totd-content {
@@ -5560,5 +5474,3 @@ body.light-mode {
     padding: 1.5rem;
   }
 }
-
-

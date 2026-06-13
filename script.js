@@ -979,1015 +979,6 @@ const dsaTopics = [
       "Word Ladder",
       "Network Delay Time",
     ],
-
-    dp: [
-        {
-            id: "dp-1",
-            question: "What are the two key properties needed for Dynamic Programming?",
-            options: ["Greedy and Divide & Conquer", "Optimal substructure and overlapping subproblems", "Recursion and memoization", "Iteration and base cases"],
-            correct: 1,
-            explanation: "DP requires optimal substructure (solution contains optimal subsolutions) and overlapping subproblems."
-        },
-        {
-            id: "dp-2",
-            question: "What is memoization in DP?",
-            options: ["Bottom-up tabulation", "Top-down caching of results", "Greedy choice", "Iterative approach"],
-            correct: 1,
-            explanation: "Memoization stores results of expensive function calls to avoid recomputation (top-down DP)."
-        },
-        {
-            id: "dp-3",
-            question: "What is tabulation in DP?",
-            options: ["Top-down recursive memoization", "Bottom-up iterative table filling", "Greedy approach", "Divide and conquer"],
-            correct: 1,
-            explanation: "Tabulation builds DP table iteratively from base cases upward (bottom-up)."
-        },
-        {
-            id: "dp-4",
-            question: "The Fibonacci sequence can be computed using DP in what time complexity?",
-            options: ["O(2^n) naive recursion", "O(n) DP", "O(log n)", "O(1)"],
-            correct: 1,
-            explanation: "DP Fibonacci computes in O(n) by storing previous two values, vs O(2^n) naive recursion."
-        },
-        {
-            id: "dp-5",
-            question: "Which classic DP problem asks: given n stairs, how many ways to reach top taking 1 or 2 steps?",
-            options: ["Coin Change", "Climbing Stairs", "House Robber", "Longest Increasing Subsequence"],
-            correct: 1,
-            explanation: "Climbing Stairs is essentially Fibonacci: ways[n] = ways[n-1] + ways[n-2]."
-        },
-        {
-            id: "dp-6",
-            question: "What is the 'state' in DP?",
-            options: ["Random number", "Set of variables defining subproblem", "Final answer", "Recursion depth"],
-            correct: 1,
-            explanation: "DP state captures parameters that uniquely define a subproblem (e.g., index, remaining capacity)."
-        },
-        {
-            id: "dp-7",
-            question: "Which DP problem involves maximizing sum of non-adjacent houses?",
-            options: ["Knapsack", "House Robber", "Longest Common Subsequence", "Edit Distance"],
-            correct: 1,
-            explanation: "House Robber: cannot rob adjacent houses; dp[i] = max(dp[i-1], dp[i-2] + nums[i])."
-        },
-        {
-            id: "dp-8",
-            question: "What is the time complexity of the classic 0/1 Knapsack DP?",
-            options: ["O(n)", "O(nW) where W=capacity", "O(2^n)", "O(n^2)"],
-            correct: 1,
-            explanation: "0/1 Knapsack DP uses a 2D table of size n x W, giving O(nW) time and space."
-        },
-        {
-            id: "dp-9",
-            question: "Which DP technique finds the longest increasing subsequence in O(n log n)?",
-            options: ["Memoization", "Patience sorting with binary search", "Tabulation", "Recursion"],
-            correct: 1,
-            explanation: "LIS can be optimized using patience sorting approach: maintain tails array, binary search for each element."
-        },
-        {
-            id: "dp-10",
-            question: "What is Edit Distance (Levenshtein distance) about?",
-            options: ["Sorting strings", "Minimum operations to convert one string to another", "Longest common substring", "String compression"],
-            correct: 1,
-            explanation: "Edit distance computes minimum insertions, deletions, substitutions to transform string A into B."
-        }
-    ],
-    greedy: [
-        {
-            id: "greedy-1",
-            question: "What is the main idea behind Greedy Algorithms?",
-            options: [
-                "Solve all subproblems first",
-                "Choose the locally optimal choice at each step",
-                "Use recursion only",
-                "Try every possible solution"
-            ],
-            correct: 1,
-            explanation: "Greedy algorithms make the best local choice at each step hoping to achieve a global optimum."
-        },
-    {
-        id: "greedy-2",
-        question: "Which problem is commonly solved using a Greedy approach?",
-        options: [
-            "Merge Sort",
-            "Activity Selection",
-            "Tower of Hanoi",
-            "Binary Search"
-        ],
-        correct: 1,
-        explanation: "Activity Selection is a classic Greedy Algorithm problem."
-    },
-    {
-        id: "greedy-3",
-        question: "Which Knapsack problem can be solved optimally using Greedy Algorithms?",
-        options: [
-            "0/1 Knapsack",
-            "Fractional Knapsack",
-            "Both",
-            "Neither"
-        ],
-        correct: 1,
-        explanation: "Fractional Knapsack can be solved greedily using value/weight ratio."
-    }
-    ],
-    dsu: [
-    {
-        question: "What is another name for Disjoint Set Union?",
-        options: [
-            "Union-Find",
-            "Binary Search Tree",
-            "Heap Structure",
-            "Hash Table"
-        ],
-        answer: "Union-Find"
-    },
-
-    {
-        question: "Which operation is used to find the representative element of a set in DSU?",
-        options: [
-            "Merge",
-            "Find",
-            "Delete",
-            "Traverse"
-        ],
-        answer: "Find"
-    },
-
-    {
-        question: "Which operation combines two different sets in DSU?",
-        options: [
-            "Find",
-            "Union",
-            "Sort",
-            "Search"
-        ],
-        answer: "Union"
-    },
-
-    {
-        question: "What is the purpose of path compression in DSU?",
-        options: [
-            "Reduce tree height and optimize Find operation",
-            "Sort elements faster",
-            "Delete duplicate elements",
-            "Increase memory usage"
-        ],
-        answer: "Reduce tree height and optimize Find operation"
-    },
-
-    {
-        question: "The optimized time complexity of DSU operations with path compression and union by rank is:",
-        options: [
-            "O(n)",
-            "O(log n)",
-            "O(α(n))",
-            "O(n²)"
-        ],
-        answer: "O(α(n))"
-    },
-
-    {
-        question: "DSU is commonly used in which graph algorithm?",
-        options: [
-            "Kruskal's Algorithm",
-            "Binary Search",
-            "Merge Sort",
-            "Floyd Warshall"
-        ],
-        answer: "Kruskal's Algorithm"
-    },
-
-    {
-        question: "Which technique helps keep DSU trees balanced?",
-        options: [
-            "Union by Rank",
-            "DFS Traversal",
-            "Dynamic Programming",
-            "Greedy Method"
-        ],
-        answer: "Union by Rank"
-    },
-
-    {
-        question: "DSU is mainly used to manage:",
-        options: [
-            "Disjoint sets",
-            "Sorted arrays",
-            "Linked lists",
-            "Stacks"
-        ],
-        answer: "Disjoint sets"
-    },
-
-    {
-        question: "In DSU, each set has a unique:",
-        options: [
-            "Representative/Root",
-            "Maximum value",
-            "Minimum value",
-            "Length"
-        ],
-        answer: "Representative/Root"
-    },
-
-    {
-        question: "Which problem can be solved using DSU?",
-        options: [
-            "Cycle detection in undirected graphs",
-            "Binary tree traversal",
-            "String matching",
-            "Array rotation"
-        ],
-        answer: "Cycle detection in undirected graphs"
-    }
-],
-segmentTree: [
-    {
-        question: "What is the primary use of Segment Tree?",
-        options: [
-            "Sorting arrays",
-            "Range queries and updates",
-            "Stack operations",
-            "Graph traversal"
-        ],
-        answer: "Range queries and updates"
-    },
-
-    {
-        question: "What is the time complexity of query operation in Segment Tree?",
-        options: [
-            "O(1)",
-            "O(log n)",
-            "O(n)",
-            "O(n log n)"
-        ],
-        answer: "O(log n)"
-    },
-
-    {
-        question: "Segment Tree is based on which data structure?",
-        options: [
-            "Binary Tree",
-            "Graph",
-            "Stack",
-            "Queue"
-        ],
-        answer: "Binary Tree"
-    },
-
-    {
-        question: "What is stored in leaf nodes of Segment Tree?",
-        options: [
-            "Single array elements",
-            "Sum of all elements",
-            "Maximum value of array",
-            "Random values"
-        ],
-        answer: "Single array elements"
-    },
-
-    {
-        question: "Time complexity to build a Segment Tree is:",
-        options: [
-            "O(n)",
-            "O(log n)",
-            "O(n log n)",
-            "O(n²)"
-        ],
-        answer: "O(n)"
-    },
-
-    {
-        question: "Which operation updates a value in Segment Tree?",
-        options: [
-            "Update",
-            "Merge",
-            "Sort",
-            "Search"
-        ],
-        answer: "Update"
-    },
-
-    {
-        question: "Segment Tree is mainly useful for:",
-        options: [
-            "Static arrays only",
-            "Dynamic range queries",
-            "Sorting problems",
-            "String matching"
-        ],
-        answer: "Dynamic range queries"
-    },
-
-    {
-        question: "Which technique improves range update efficiency in Segment Tree?",
-        options: [
-            "Lazy Propagation",
-            "Binary Search",
-            "Recursion only",
-            "Hashing"
-        ],
-        answer: "Lazy Propagation"
-    },
-
-    {
-        question: "Space complexity of Segment Tree is:",
-        options: [
-            "O(n)",
-            "O(log n)",
-            "O(n log n)",
-            "O(1)"
-        ],
-        answer: "O(n)"
-    },
-
-    {
-        question: "Which of the following can Segment Tree NOT efficiently do?",
-        options: [
-            "Range Sum Query",
-            "Range Minimum Query",
-            "Point Update",
-            "Linear sorting of array"
-        ],
-        answer: "Linear sorting of array"
-    }
-],
-"Trie": [
-  {
-    question: "What is a Trie mainly used for?",
-    options: [
-      "Sorting numbers",
-      "Prefix-based searching",
-      "Graph traversal",
-      "Stack operations"
-    ],
-    answer: "Prefix-based searching"
-  },
-  {
-    question: "What does each node in a Trie represent?",
-    options: [
-      "A complete word",
-      "A character",
-      "An array index",
-      "A number"
-    ],
-    answer: "A character"
-  },
-  {
-    question: "What is the time complexity of searching in a Trie?",
-    options: [
-      "O(1)",
-      "O(n)",
-      "O(log n)",
-      "O(n^2)"
-    ],
-    answer: "O(n)"
-  },
-  {
-    question: "Which operation is NOT typically supported by Trie?",
-    options: [
-      "Insert",
-      "Search",
-      "Delete",
-      "Sorting"
-    ],
-    answer: "Sorting"
-  },
-  {
-    question: "Trie is also known as?",
-    options: [
-      "Binary Tree",
-      "Prefix Tree",
-      "Segment Tree",
-      "Heap"
-    ],
-    answer: "Prefix Tree"
-  },
-  {
-    question: "Which problem is best solved using Trie?",
-    options: [
-      "Binary Search",
-      "Autocomplete suggestions",
-      "Merge Sort",
-      "DFS traversal"
-    ],
-    answer: "Autocomplete suggestions"
-  },
-  {
-    question: "Root node in a Trie represents?",
-    options: [
-      "First character",
-      "Empty string",
-      "Last character",
-      "Null value"
-    ],
-    answer: "Empty string"
-  },
-  {
-    question: "What is used to mark the end of a word in Trie?",
-    options: [
-      "Boolean flag",
-      "Integer counter",
-      "Pointer only",
-      "Array index"
-    ],
-    answer: "Boolean flag"
-  },
-  {
-    question: "Which data structure is closest to Trie concept?",
-    options: [
-      "Array",
-      "HashMap",
-      "Tree",
-      "Stack"
-    ],
-    answer: "Tree"
-  },
-  {
-    question: "Main advantage of Trie is?",
-    options: [
-      "Less memory usage",
-      "Fast prefix search",
-      "Easy sorting",
-      "Random access"
-    ],
-    answer: "Fast prefix search"
-  }
-]
-};
-
-// ===== DATA OBJECTS =====
-const dsaTopics = [
-    {
-        id: 1,
-        name: "Arrays",
-        icon: "📊",
-        description: "Learn array operations, manipulations, and common interview problems",
-        difficulty: "Easy-Medium",
-        theory: "Arrays are contiguous memory locations that store elements of the same type. They provide O(1) access time but fixed size.",
-        problems: ["Two Sum", "Maximum Subarray", "Merge Intervals", "Product Except Self", "Spiral Matrix"]
-    },
-    {
-        id: 2,
-        name: "Strings",
-        icon: "🔤",
-        description: "Master string algorithms, pattern matching, and string manipulation",
-        difficulty: "Easy-Medium",
-        theory: "Strings are arrays of characters. Key operations include concatenation, substring search, and pattern matching using algorithms like KMP.",
-        problems: ["Longest Substring Without Repeating", "Valid Parentheses", "Palindrome Partitioning", "String to Integer", "Group Anagrams"]
-    },
-    {
-        id: 3,
-        name: "Linked List",
-        icon: "🔗",
-        description: "Singly, doubly, and circular linked lists with traversal techniques",
-        difficulty: "Medium",
-        theory: "Linked lists are linear data structures where elements are linked using pointers. Allows dynamic size and efficient insertions/deletions.",
-        problems: ["Reverse Linked List", "Detect Cycle", "Merge Two Sorted Lists", "Remove Nth From End", "Intersection of Two Lists"]
-    },
-    {
-        id: 4,
-        name: "Trees",
-        icon: "🌳",
-        description: "Binary trees, BST, traversal algorithms, and tree-based problems",
-        difficulty: "Medium-Hard",
-        theory: "Trees are hierarchical structures. Binary trees have at most two children per node. BST maintains sorted order: left < root < right.",
-        problems: ["Maximum Depth", "Validate BST", "Lowest Common Ancestor", "Serialize/Deserialize", "Path Sum"]
-    },
-    {
-        id: 5,
-        name: "Graphs",
-        icon: "🕸️",
-        description: "Graph representations, traversal (BFS/DFS), shortest paths, and networks",
-        difficulty: "Hard",
-        theory: "Graphs consist of vertices connected by edges. Representations: adjacency list/matrix. Traversals: BFS (level-order) and DFS (depth-first).",
-        problems: ["Clone Graph", "Number of Islands", "Course Schedule", "Word Ladder", "Network Delay Time"]
-    },
-    {
-        
-    id: 6,
-    name: "Dynamic Programming",
-    icon: "🎯",
-    description: "Learn optimization techniques using Memoization, Tabulation, and common Dynamic Programming patterns.",
-    difficulty: "Hard",
-    theory: `
-        <h4>Introduction</h4>
-        <p>
-            Dynamic Programming (DP) is an optimization technique used to solve problems by breaking them into smaller overlapping subproblems and storing their solutions.
-        </p>
-
-        <h4>Key Concepts</h4>
-        <ul>
-            <li>Optimal Substructure</li>
-            <li>Overlapping Subproblems</li>
-            <li>State Representation</li>
-            <li>Transition Formula</li>
-        </ul>
-
-        <h4>Memoization (Top-Down)</h4>
-        <p>
-            Memoization uses recursion and stores previously computed results to avoid repeated calculations.
-        </p>
-
-        <h4>Tabulation (Bottom-Up)</h4>
-        <p>
-            Tabulation builds solutions iteratively using a table starting from base cases.
-        </p>
-
-        <h4>Common DP Patterns</h4>
-        <ul>
-            <li>Fibonacci Pattern</li>
-            <li>0/1 Knapsack</li>
-            <li>Longest Common Subsequence</li>
-            <li>Longest Increasing Subsequence</li>
-            <li>Coin Change</li>
-            <li>Matrix Chain Multiplication</li>
-        </ul>
-
-        <h4>Visual Flow</h4>
-        <p>
-            Problem → Subproblems → Store Results → Reuse Results → Optimal Solution
-        </p>
-
-        <h4>Practice Exercises</h4>
-        <ol>
-            <li>Climbing Stairs</li>
-            <li>House Robber</li>
-            <li>Coin Change</li>
-            <li>Longest Common Subsequence</li>
-            <li>Edit Distance</li>
-        </ol>
-    `,
-    problems: [
-        "Climbing Stairs",
-        "House Robber",
-        "Coin Change",
-        "Longest Common Subsequence",
-        "Edit Distance",
-        "Longest Increasing Subsequence"
-    ]
-
-    },
-    {
-        id: 7,
-        name: "Greedy Algorithms",
-        icon: "💡",
-        description: "Learn greedy strategy, optimization techniques, and common real-world applications.",
-        difficulty: "Medium",
-        theory: `
-            Introduction:
-            Greedy Algorithms build a solution step by step by always choosing the locally optimal choice at each stage.
-
-            Greedy Approach:
-            • Choose the best available option.
-            • Add it to the solution.
-            • Never reconsider previous choices.
-            • Repeat until the solution is complete.
-
-            Advantages:
-            • Easy to understand and implement.
-            • Fast execution.
-            • Memory efficient.
-            • Useful for optimization problems.
-
-            Limitations:
-            • Does not always guarantee the optimal solution.
-            • Works only for problems with the greedy-choice property.
-            • Requires proof of correctness.
-
-            Common Problems:
-            • Activity Selection
-            • Fractional Knapsack
-            • Huffman Coding
-            • Job Sequencing
-            • Prim's Algorithm
-            • Kruskal's Algorithm
-
-            Practice Exercises:
-            1. Solve Activity Selection Problem.
-            2. Implement Fractional Knapsack.
-            3. Implement Huffman Coding.
-            4. Solve Job Sequencing Problem.
-            5. Find MST using Kruskal's Algorithm.
-            `,
-            problems: [
-                "Activity Selection",
-                "Fractional Knapsack",
-                "Huffman Coding",
-                "Job Sequencing",
-                "Prim's Algorithm",
-                "Kruskal's Algorithm"
-            ]
-    },
-    {
-    id: 8,
-    name: "Backtracking",
-    icon: "🔙",
-    description: "Explore backtracking technique, decision trees, and classic problems like N Queens and Sudoku.",
-    difficulty: "Intermediate",
-    theory: `
-        <h4>Introduction</h4>
-        <p>
-            Backtracking is a systematic search technique that builds solutions incrementally and abandons invalid paths.
-        </p>
-
-        <h4>Decision Tree Concept</h4>
-        <p>
-            Each decision creates branches in a decision tree. Invalid branches are pruned early.
-        </p>
-
-        <h4>State Space Search</h4>
-        <p>
-            Backtracking explores the state space using depth-first search.
-        </p>
-        <h4>Example: N-Queens Problem</h4>
-<p>
-Place 4 queens on a 4×4 chessboard so that no two queens attack each other.
-Backtracking places queens row by row and removes a queen whenever a conflict is found.
-</p>
-
-<ul>
-    <li>Try placing Queen in Row 1</li>
-    <li>Move to Row 2 and check safety</li>
-    <li>If conflict occurs, backtrack</li>
-    <li>Try another position</li>
-    <li>Continue until a valid solution is found</li>
-</ul>
-
-        <h4>Classic Problems</h4>
-        <ul>
-            <li>N Queens</li>
-            <li>Sudoku Solver</li>
-            <li>Rat in a Maze</li>
-            <li>Subset Sum</li>
-            <li>Permutations</li>
-        </ul>
-
-        <h4>Practice Exercises</h4>
-        <ol>
-            <li>Solve 4 Queens Problem</li>
-            <li>Generate all permutations of ABC</li>
-            <li>Solve Sudoku</li>
-            <li>Implement Rat in a Maze</li>
-        </ol>
-    `,
-    problems: [
-        "N Queens",
-        "Sudoku Solver",
-        "Rat in a Maze",
-        "Subset Sum",
-        "Permutations"
-    ]
-},
-{
-    id: "dsu",
-    name: "Disjoint Set Union (DSU)",
-    icon: "🔗",
-    description: "Learn about Disjoint Set Union (DSU) data structure, its operations, and applications in graph algorithms.",
-
-    theory: `
-        <h3>Introduction to DSU</h3>
-
-        <p>
-        Disjoint Set Union (DSU), also known as Union-Find,
-        is a data structure used to maintain a collection
-        of non-overlapping sets.
-        </p>
-
-
-        <h3>Find Operation</h3>
-
-        <p>
-        Find operation determines the representative/root
-        element of a set.
-        </p>
-
-
-        <h3>Union Operation</h3>
-
-        <p>
-        Union operation combines two different sets into
-        a single set.
-        </p>
-
-
-        <h3>Path Compression</h3>
-
-        <p>
-        Path compression optimizes the Find operation by
-        making every node point directly to the root.
-        </p>
-
-
-        <h3>Applications</h3>
-
-        <ul>
-            <li>Kruskal's Algorithm</li>
-            <li>Cycle Detection in Graphs</li>
-            <li>Network Connectivity</li>
-            <li>Connected Components</li>
-        </ul>
-    `,
-
-    problems:[
-        "Implement DSU with Find and Union",
-        "Detect cycle using DSU",
-        "Solve Kruskal Algorithm using DSU"
-    ],
-
-    difficulty:"Medium"
-},
-{
-    id: "segment-tree",
-    name: "Segment Tree",
-    icon: "🌳",
-    description: "Learn Segment Tree for efficient range queries and updates in O(log n).",
-
-    theory: `
-        <h3>Introduction to Segment Tree</h3>
-
-        <p>
-        A Segment Tree is a binary tree used for answering range queries
-        like sum, minimum, maximum efficiently in O(log n).
-        </p>
-
-        <h3>Construction</h3>
-
-        <p>
-        The array is recursively divided into segments and stored in a tree structure.
-        </p>
-
-        <h3>Query Operation</h3>
-
-        <p>
-        Range queries are answered by combining results of relevant segments.
-        </p>
-
-        <h3>Update Operation</h3>
-
-        <p>
-        Updates modify a value and propagate changes up the tree.
-        </p>
-
-        <h3>Applications</h3>
-        <ul>
-            <li>Range Sum Query</li>
-            <li>Range Minimum/Maximum Query</li>
-            <li>Competitive Programming Problems</li>
-            <li>Data Analysis Queries</li>
-        </ul>
-    `,
-
-    problems: [
-        "Build Segment Tree",
-        "Range Sum Query",
-        "Range Minimum Query",
-        "Point Update in Segment Tree"
-    ],
-
-    difficulty: "Hard"
-},
-{
-  id: "trie",
-  name: "Trie Data Structure",
-  icon: "🌲",
-  description: "Learn about Trie data structure for efficient prefix-based searching and its applications.",
-  difficulty: "Medium",
-  theory: `
-Trie is a tree-like data structure used to store strings efficiently for prefix-based searching.
-
-It supports:
-- Insert
-- Search
-- Delete
-
-Used in:
-- Autocomplete
-- Dictionary search
-- Spell checker
-  `,
-  problems: [
-    "Implement Trie",
-    "Search in Trie",
-    "Delete a word from Trie"
-  ]
-}
-];
-
-const practiceProblems = [
-    { id: 1, title: "Two Sum", difficulty: "easy", tags: ["Arrays", "Hash Table"], acceptance: "48.2%", category: "arrays" },
-    { id: 2, title: "Valid Parentheses", difficulty: "easy", tags: ["Strings", "Stack"], acceptance: "40.2%", category: "strings" },
-    { id: 3, title: "Merge Two Sorted Lists", difficulty: "easy", tags: ["Linked List", "Recursion"], acceptance: "58.5%", category: "linkedlist" },
-    { id: 4, title: "Maximum Subarray", difficulty: "medium", tags: ["Arrays", "Divide & Conquer"], acceptance: "46.2%", category: "arrays" },
-    { id: 5, title: "LRU Cache", difficulty: "medium", tags: ["Design", "Hash Table"], acceptance: "37.5%", category: "arrays" },
-    { id: 6, title: "Clone Graph", difficulty: "medium", tags: ["Graphs", "DFS", "BFS"], acceptance: "43.2%", category: "graphs" },
-    { id: 7, title: "Longest Increasing Subsequence", difficulty: "hard", tags: ["DP", "Binary Search"], acceptance: "42.1%", category: "dp" },
-    { id: 8, title: "Word Ladder", difficulty: "hard", tags: ["Graphs", "BFS"], acceptance: "31.4%", category: "graphs" },
-    { id: 9, title: "Trapping Rain Water", difficulty: "hard", tags: ["Arrays", "Two Pointers"], acceptance: "48.7%", category: "arrays" },
-    { id: 10, title: "Reverse Linked List", difficulty: "easy", tags: ["Linked List"], acceptance: "72.1%", category: "linkedlist" },
-    { id: 11, title: "Invert Binary Tree", difficulty: "easy", tags: ["Trees", "DFS"], acceptance: "68.5%", category: "trees" },
-    { id: 12, title: "Validate BST", difficulty: "medium", tags: ["Trees", "Recursion"], acceptance: "28.4%", category: "trees" },
-    { id: 13, title: "Number of Islands", difficulty: "medium", tags: ["Graphs", "DFS"], acceptance: "54.8%", category: "graphs" },
-    { id: 14, title: "House Robber", difficulty: "medium", tags: ["DP", "Arrays"], acceptance: "42.3%", category: "dp" },
-    { id: 15, title: "Course Schedule", difficulty: "medium", tags: ["Graphs", "Topological Sort"], acceptance: "44.7%", category: "graphs" },
-    {
-    id: 16,
-    title: "Activity Selection",
-    difficulty: "medium",
-    tags: ["Greedy", "Scheduling"],
-    acceptance: "52.4%",
-    category: "greedy"
-},
-{
-    id: 17,
-    title: "Fractional Knapsack",
-    difficulty: "medium",
-    tags: ["Greedy", "Optimization"],
-    acceptance: "58.7%",
-    category: "greedy"
-},
-{
-    id: 18,
-    title: "Job Sequencing with Deadlines",
-    difficulty: "hard",
-    tags: ["Greedy", "Scheduling"],
-    acceptance: "41.2%",
-    category: "greedy"
-},
-{
-    id: 19,
-    title: "Huffman Coding",
-    difficulty: "hard",
-    tags: ["Greedy", "Trees"],
-    acceptance: "46.8%",
-    category: "greedy"
-},
-{
-    id: 20,
-    title: "Minimum Spanning Tree",
-    difficulty: "medium",
-    tags: ["Greedy", "Graphs"],
-    acceptance: "55.1%",
-    category: "greedy"
-},
-{
-    id: 21,
-    title: "N Queens",
-    difficulty: "medium",
-    tags: ["Backtracking", "Recursion"],
-    acceptance: "52.4%",
-    category: "backtracking"
-},
-{
-    id: 22,
-    title: "Sudoku Solver",
-    difficulty: "hard",
-    tags: ["Backtracking"],
-    acceptance: "41.8%",
-    category: "backtracking"
-},
-{
-    id: 23,
-    title: "Rat in a Maze",
-    difficulty: "medium",
-    tags: ["Backtracking", "DFS"],
-    acceptance: "58.3%",
-    category: "backtracking"
-},
-{
-    id: 24,
-    title: "Climbing Stairs",
-    difficulty: "easy",
-    tags: ["DP"],
-    acceptance: "63.4%",
-    category: "dp"
-},
-{
-    id: 25,
-    title: "Coin Change",
-    difficulty: "medium",
-    tags: ["DP"],
-    acceptance: "45.7%",
-    category: "dp"
-},
-{
-    id: 26,
-    title: "Edit Distance",
-    difficulty: "hard",
-    tags: ["DP"],
-    acceptance: "39.1%",
-    category: "dp"
-},
-{
-    id: 27,
-    title: "Longest Common Subsequence",
-    difficulty: "hard",
-    tags: ["DP", "Strings"],
-    acceptance: "42.8%",
-    category: "dp"
-},
-{
-    id: 28,
-    title: "Implement Disjoint Set Union",
-    difficulty: "medium",
-    tags: ["DSU", "Union Find", "Data Structure"],
-    acceptance: "65.4%",
-    category: "dsu"
-},
-
-{
-    id: 29,
-    title: "Number of Connected Components",
-    difficulty: "medium",
-    tags: ["DSU", "Graphs"],
-    acceptance: "61.2%",
-    category: "dsu"
-},
-
-{
-    id: 30,
-    title: "Redundant Connection",
-    difficulty: "medium",
-    tags: ["DSU", "Graph", "Cycle Detection"],
-    acceptance: "68.7%",
-    category: "dsu"
-},
-
-{
-    id: 31,
-    title: "Kruskal's Algorithm using DSU",
-    difficulty: "hard",
-    tags: ["DSU", "Minimum Spanning Tree", "Graphs"],
-    acceptance: "54.3%",
-    category: "dsu"
-},
-
-{
-    id: 32,
-    title: "Accounts Merge",
-    difficulty: "medium",
-    tags: ["DSU", "Hash Map", "Graph"],
-    acceptance: "58.9%",
-    category: "dsu"
-},
-{
-    id: 33,
-    title: "Build Segment Tree",
-    difficulty: "hard",
-    tags: ["Segment Tree", "Data Structure"],
-    acceptance: "60.2%",
-    category: "segment-tree"
-},
-{
-    id: 34,
-    title: "Range Sum Query",
-    difficulty: "medium",
-    tags: ["Segment Tree", "Query"],
-    acceptance: "55.1%",
-    category: "segment-tree"
-},
-{
-    id: 35,
-    title: "Point Update in Segment Tree",
-    difficulty: "medium",
-    tags: ["Segment Tree", "Update"],
-    acceptance: "57.8%",
-    category: "segment-tree"
-},
-{
-    id: 36,
-    title: "Implement Trie (Insert and Search)",
-    difficulty: "medium",
-    tags: ["Trie", "Design", "String"],
-    acceptance: "62.4%",
-    category: "trie"
-},
-{
-    id: 37,
-    title: "Search Suggestions System",
-    difficulty: "hard",
-    tags: ["Trie", "Prefix", "Heap"],
-    acceptance: "48.9%",
-    category: "trie"
-},
-{
-    id: 38,
-    title: "Replace Words using Trie",
-    difficulty: "medium",
-    tags: ["Trie", "String", "Dictionary"],
-    acceptance: "55.1%",
-    category: "trie"
-},
-{
-    id: 39,
-    title: "Longest Word in Dictionary",
-    difficulty: "easy",
-    tags: ["Trie", "String"],
-    acceptance: "60.3%",
-    category: "trie"
-}
-
-
   },
   {
     id: 6,
@@ -2601,7 +1592,6 @@ const dailyChallenges = [
     problemId: null,
     xpReward: 100,
   },
-
 ];
 
 const chatbotResponses = {
@@ -2644,18 +1634,6 @@ const chatbotResponses = {
 
 // ===== STATE MANAGEMENT =====
 let userProgress = {
-
-    name: "Learner",
-    avatar: "🚀",
-    completedProblems: [],
-    xp: 0,
-    level: 1,
-    streak: 0,
-    badges: [],
-    lastActive: null,
-    joinDate: null, // Will be set on first load
-    quizScores: {}, // topic -> { bestScore, attempts, totalXP }
-
   name: "Learner",
   avatar: "🚀",
   completedProblems: [],
@@ -2675,7 +1653,6 @@ let userProgress = {
   quizScores: {}, // topic -> { bestScore, attempts, totalXP }
   bestQuizTimes: {},
   activityData: {}, // date-string -> count (e.g. "2026-06-05" -> 3)
-
 };
 
 
@@ -2684,53 +1661,6 @@ let userProgress = {
 let currentProblem = null;
 
 // ===== INITIALIZATION =====
-
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded fired, initializing app...');
-    loadUserData();
-    initLoadingScreen();
-    initNavbar();
-    initHeroSection();
-    initTopicsSection();
-    initQuizSection();
-    initPracticeSection();
-    initRoadmap();
-    initDashboard();
-    initGamification();
-    initChatbot();
-    initProfile();
-    initScrollEffects();
-    initDarkMode();
-     const welcomeBanner = document.getElementById('welcomeBanner');
-    const closeBanner = document.getElementById('closeBanner');
-
-    if (!localStorage.getItem('welcomeShown')) {
-        welcomeBanner.classList.remove('hidden');
-        localStorage.setItem('welcomeShown', 'true');
-    }
-
-    if (closeBanner && welcomeBanner) {
-    closeBanner.addEventListener('click', () => {
-        welcomeBanner.classList.add('hidden');
-    });
-}
-
-    // Update profile display after loading
-    
-    console.log('App initialization complete');
-
-    // Language change handler for code editor
-    const langSelect = document.getElementById('languageSelect');
-    if (langSelect) {
-        langSelect.addEventListener('change', () => {
-            if (currentProblem) {
-                const editor = document.getElementById('codeEditor');
-                editor.value = getDefaultCode(langSelect.value, currentProblem);
-                editor.dispatchEvent(new Event('input'));
-            }
-        });
-    }
-
 document.addEventListener("DOMContentLoaded", () => {
 
   // Apply saved theme only after DOM is ready to avoid touching document.body too early
@@ -2784,7 +1714,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
 
   const saveNotesBtn = document.getElementById("saveNotesBtn");
 
@@ -3273,19 +2202,6 @@ function getDifficultyClass(difficulty) {
 
 // Get quiz topic key from topic object
 function getQuizTopicKey(topic) {
-
-    const name = topic.name.toLowerCase();
-    // Map topic names to quiz keys
-    const keyMap = {
-        'arrays': 'arrays',
-        'strings': 'strings',
-        'linked list': 'linkedlist',
-        'trees': 'trees',
-        'graphs': 'graphs',
-        'dynamic programming': 'dp',
-        'greedy algorithms': 'greedy',
-        'backtracking': 'backtracking'
-
   const normalize = (s) =>
     String(s)
       .trim()
@@ -3302,7 +2218,6 @@ function getQuizTopicKey(topic) {
       graphs: "graphs",
       "dynamic programming": "dp",
       dp: "dp",
-
     };
     return map[normalize(key)] || null;
   };
@@ -3360,20 +2275,6 @@ function initQuizSection() {
                     <i class="fas fa-play"></i> Start Quiz
                 </button>
             `;
-
-            quizGrid.appendChild(card);
-            console.log(`Quiz card created for ${topic.name}`);
-
-            // Update progress display
-            updateQuizProgressDisplay(topic);
-
-            // Add click handler
-            
-        });
-        console.log('Quiz Section initialization complete');
-    } catch (error) {
-        console.error('Error initializing quiz section:', error);
-    }
       quizGrid.appendChild(card);
       card.addEventListener("click", () => {
         startQuiz(topicKey);
@@ -3396,23 +2297,8 @@ function initQuizSection() {
   } catch (error) {
     console.error("Error initializing quiz section:", error);
   }
-
 }
-document.addEventListener('click', function (e) {
-    const btn = e.target.closest('.start-quiz-btn');
-    if (!btn) return;
 
-    e.preventDefault();
-    e.stopPropagation();
-
-    const topicKey = btn.dataset.topic;
-    const topic = dsaTopics.find(t => getQuizTopicKey(t) === topicKey);
-
-    if (!topic) return;
-
-    console.log("QUIZ OPEN:", topic.name);
-    startQuiz(topic);
-}, true);
 function updateQuizProgressDisplay(topic) {
   const topicKey = getQuizTopicKey(topic);
   const progressFill = document.getElementById(`progress-${topicKey}`);
@@ -3452,26 +2338,6 @@ function startQuiz(topicKey) {
   topicKey = normalizedTopicKey;
 
 
-
-    // Header update
-    document.getElementById('topicQuizBadge').textContent = topic.name;
-    document.getElementById('topicQuizDifficulty').textContent = topic.difficulty;
-    document.getElementById('topicQuizTitle').textContent = `${topic.name} Quiz`;
-
-    const prevResult = document.getElementById('topicQuizResult');
-    if (prevResult) prevResult.classList.add('hidden');
-
-    // 🔥 FIX IMPORTANT STATE RESET
-    openQuizModal();
-
-    const loader = document.getElementById('quizLoader');
-    const panel = document.querySelector('.quiz-problem-panel');
-
-    if (loader) loader.classList.add('hidden');
-    if (panel) panel.style.display = 'block';
-
-    renderQuizQuestion();
-
   const resultEl = document.getElementById("topicQuizResult");
 
   if (resultEl) {
@@ -3495,7 +2361,6 @@ function startQuiz(topicKey) {
   startQuizTimer(topicKey);
 
   renderQuizQuestion();
-
 }
 
 // Fisher-Yates shuffle
@@ -4865,58 +3730,6 @@ window.openRoadmapStepModal = openRoadmapStepModal;
 
 // ===== PROFILE =====
 function initProfile() {
-
-    var profileName = document.getElementById("profileName");
-    if (profileName) {
-        profileName.textContent = userProgress.name;
-    }
-    
-    // Set joined date
-    var joinDate = document.getElementById("joinDate");
-    if (joinDate) {
-        let joinDateObj;
-        if (userProgress.joinDate) {
-            joinDateObj = new Date(userProgress.joinDate);
-        } else {
-            joinDateObj = new Date();
-            userProgress.joinDate = joinDateObj.toISOString();
-            saveUserData();
-        }
-        joinDate.textContent = joinDateObj.toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric"
-        });
-    }
-    
-    // Set current date in dashboard
-    var currentDateElement = document.getElementById("current-date");
-    if (currentDateElement) {
-        var today = new Date();
-        currentDateElement.textContent = "Today: " + today.toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric"
-        });
-    }
-    
-    // Set current date in dashboard card
-    var dashboardCurrentDateElement = document.getElementById("dashboard-current-date");
-    if (dashboardCurrentDateElement) {
-        var today = new Date();
-        dashboardCurrentDateElement.textContent = "Today: " + today.toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric"
-        });
-    }
-    
-    var avatarIcon = document.querySelector('.avatar-icon');
-    if (avatarIcon) {
-        avatarIcon.textContent = userProgress.avatar || '🚀';
-    }
-    updateProfile();
-
   var profileName = document.getElementById("profileName") || document.getElementById("profileDashboardName");
   if (profileName) {
     profileName.textContent = userProgress.name;
@@ -4953,7 +3766,6 @@ function initProfile() {
     avatarIcon.textContent = userProgress.avatar || "🚀";
   }
   updateProfile();
-
 }
 
 function updateProfile() {
@@ -5914,24 +4726,6 @@ async function getAuthenticatedSession() {
 }
 
 function loadUserData() {
-
-    try {
-        const saved = localStorage.getItem('algoInfinityVerse');
-        if (saved) {
-            const data = JSON.parse(saved);
-            userProgress = { ...userProgress, ...data };
-
-            // Ensure quizScores exists
-            if (!userProgress.quizScores) {
-                userProgress.quizScores = {};
-            }
-            
-            // Initialize joinDate if not set
-            if (!userProgress.joinDate) {
-                userProgress.joinDate = new Date().toISOString();
-                saveUserData();
-            }
-
   try {
     const saved = localStorage.getItem("algoInfinityVerse");
     if (saved) {
@@ -5971,7 +4765,6 @@ function loadUserData() {
         userProgress.activityData = {};
       }
 
-
       // Backfill activity heatmap from existing completed problems
       backfillActivityData();
 
@@ -5985,35 +4778,6 @@ function loadUserData() {
         if (diffDays === 0) {
           // Already active today
         } else {
-
-            // Initialize with some demo data
-            userProgress.name = "Learner";
-            userProgress.avatar = "🚀";
-            userProgress.completedProblems = [1, 2, 10];
-            userProgress.xp = 350;
-            userProgress.level = 2;
-            userProgress.streak = 3;
-            userProgress.badges = [1];
-            userProgress.joinDate = new Date().toISOString();
-            userProgress.quizScores = {};
-            saveUserData();
-        }
-    } catch (error) {
-        console.error('Error loading user data, resetting to defaults:', error);
-        // Reset to defaults
-        userProgress = {
-            name: "Learner",
-            avatar: "🚀",
-            completedProblems: [],
-            xp: 0,
-            level: 1,
-            streak: 0,
-            badges: [],
-            lastActive: null,
-            joinDate: new Date().toISOString(),
-            quizScores: {}
-        };
-
           let daysMissed = diffDays > 0 ? diffDays - 1 : 0;
           while (daysMissed > 0 && userProgress.freezes > 0) {
             userProgress.freezes -= 1;
@@ -6033,7 +4797,6 @@ function loadUserData() {
             }
           }
         }
-
         saveUserData();
       }
     } else {
@@ -6080,11 +4843,7 @@ function loadUserData() {
       updateProfile();
       saveUserData();
     }
-
-    // Update profile display after loading
-
   });
-
 }
 
 // ===== QUIZ EDITOR =====
@@ -6093,21 +4852,6 @@ function loadUserData() {
 // currentNotesProblemId is already declared earlier; do not redeclare it here.
 
 function openTopicModal(topic) {
-
-    const modal = document.getElementById('topicModal');
-    document.getElementById('modalTitle').textContent = topic.name;
-    document.getElementById('modalTheory').innerHTML = topic.theory;
-    document.getElementById('modalDifficulty').innerHTML =
-        `<span class="difficulty-badge ${getDifficultyClass(topic.difficulty)}">${topic.difficulty}</span>`;
-
-    const problemsList = document.getElementById('modalProblems');
-    problemsList.innerHTML = topic.problems.map(p => `<li>${p}</li>`).join('');
-
-    document.getElementById('startPracticeBtn').onclick = () => {
-        modal.classList.remove('active');
-        document.getElementById('practice').scrollIntoView({ behavior: 'smooth' });
-    };
-
   const modal = document.getElementById("topicModal");
   let selectedProblemName = null; // track selected problem
 
@@ -6134,7 +4878,6 @@ document.getElementById("modalTheory").innerHTML = topic.theory;
 
     closeTopicModal();
     document.getElementById("practice").scrollIntoView({ behavior: "smooth" });
-
 
     setTimeout(() => {
       const match = practiceProblems.find(
@@ -7222,49 +5965,6 @@ if (document.readyState === 'loading') {
 // Initialize some animations after page load
 window.addEventListener("load", () => {
 });
-function setJoinDate() {
-    const joinElement = document.getElementById("joinDate");
-
-    if (!joinElement) return;
-
-    const options = {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    };
-
-    const today = new Date().toLocaleDateString(undefined, options);
-
-    joinElement.innerText = today;
-}
-
-setJoinDate();
-// ✅ FIX: Current Date feature for dashboard + profile
-
-function updateDate() {
-    const today = new Date();
-
-    const formattedDate = today.toLocaleDateString(undefined, {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    });
-
-    const dashboardDate = document.getElementById("dashboard-current-date");
-    if (dashboardDate) {
-        dashboardDate.textContent = formattedDate;
-    }
-
-    const profileDate = document.getElementById("profile-current-date");
-    if (profileDate) {
-        profileDate.textContent = formattedDate;
-    }
-}
-
-
-updateDate();
-setInterval(updateDate, 60 * 60 * 1000);
 
 // ===== NEWSLETTER FORM VALIDATION =====
 function validateEmail(email) {
@@ -7415,4 +6115,3 @@ function initBackToTopButtons() {
 }
 
 initBackToTopButtons();
-
