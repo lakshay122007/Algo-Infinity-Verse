@@ -93,7 +93,24 @@
 /* Auto-run toggle */
 .re-auto-toggle { display: flex; align-items: center; gap: 0.5rem; }
 .re-toggle-label { font-size: 0.8rem; color: var(--text-secondary); white-space: nowrap; }
-.re-toggle-input { display: none; }
+.re-toggle-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.re-toggle-input:focus-visible + .re-toggle-switch {
+  outline: 2px solid `#cc342d`;
+  outline-offset: 2px;
+}
+
 .re-toggle-switch {
   width: 36px;
   height: 20px;
