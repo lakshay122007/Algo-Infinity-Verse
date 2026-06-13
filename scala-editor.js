@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   initScrollTop();
   initDarkMode();
-  initScalaEditor();
+  try { initScalaEditor(); } catch(e) { console.error("ScalaEditor:", e); }
 });
 
 function initLoadingScreen() {
@@ -84,72 +84,57 @@ const SCALA_EXAMPLES = {
     println("Scala version: 3.3 (simulated)")
   }
 }`,
-
   variables: `object Variables {
   def main(args: Array[String]): Unit = {
     val name: String = "Lakshay"
     val age: Int = 21
     var score: Double = 98.5
     val isReady: Boolean = true
-
-    println(s"Name: $name")
-    println(s"Age: $age")
-    println(s"Score: $score")
-    println(s"Ready: $isReady")
-    println(s"Type of score: ${score.getClass.getSimpleName}")
-
+    println(s"Name: \${name}")
+    println(s"Age: \${age}")
+    println(s"Score: \${score}")
+    println(s"Ready: \${isReady}")
+    println(s"Type of score: \${score.getClass.getSimpleName}")
     score = 99.0
-    println(s"Updated score: $score")
+    println(s"Updated score: \${score}")
   }
 }`,
-
   collections: `object Collections {
   def main(args: Array[String]): Unit = {
     val fruits = List("apple", "banana", "cherry", "mango")
-
     println("All fruits:")
     fruits.zipWithIndex.foreach { case (f, i) =>
-      println(s"  $i => $f")
+      println(s"  \${i} => \${f}")
     }
-
-    println(s"\\nCount: ${fruits.length}")
-
+    println(s"\\nCount: \${fruits.length}")
     val squares = (1 to 5).map(n => n * n)
-    println(s"\\nSquares: ${squares.mkString(", ")}")
-
+    println(s"\\nSquares: \${squares.mkString(", ")}")
     val evens = (1 to 10).filter(_ % 2 == 0)
-    println(s"Evens: ${evens.mkString(", ")}")
+    println(s"Evens: \${evens.mkString(", ")}")
   }
 }`,
-
   function: `object Functions {
   def greet(name: String, greeting: String = "Hello"): String =
-    s"$greeting, $name!"
-
+    s"\${greeting}, \${name}!"
   def factorial(n: Int): Int =
     if (n <= 1) 1 else n * factorial(n - 1)
-
   val square = (x: Int) => x * x
-
   def main(args: Array[String]): Unit = {
     println(greet("Lakshay"))
     println(greet("World", "Hey"))
-    println(s"\\nfactorial(5)  = ${factorial(5)}")
-    println(s"factorial(10) = ${factorial(10)}")
-    println(s"\\nsquare(7) = ${square(7)}")
-    println(s"Lambda: ${List(1,2,3,4,5).map(square).mkString(", ")}")
+    println(s"\\nfactorial(5)  = \${factorial(5)}")
+    println(s"factorial(10) = \${factorial(10)}")
+    println(s"\\nsquare(7) = \${square(7)}")
+    println(s"Lambda: \${List(1,2,3,4,5).map(square).mkString(", ")}")
   }
 }`,
-
   class: `object OOP {
   class Animal(val name: String, val sound: String) {
-    def speak(): String = s"$name says $sound!"
+    def speak(): String = s"\${name} says \${sound}!"
   }
-
   class Dog(name: String) extends Animal(name, "Woof") {
-    def fetch(item: String): String = s"$name fetches the $item!"
+    def fetch(item: String): String = s"\${name} fetches the \${item}!"
   }
-
   case class Point(x: Double, y: Double) {
     def distanceTo(other: Point): Double = {
       val dx = x - other.x
@@ -157,43 +142,37 @@ const SCALA_EXAMPLES = {
       math.sqrt(dx * dx + dy * dy)
     }
   }
-
   def main(args: Array[String]): Unit = {
     val cat = new Animal("Cat", "Meow")
     val dog = new Dog("Rex")
     println(cat.speak())
     println(dog.speak())
     println(dog.fetch("ball"))
-
     val p1 = Point(0, 0)
     val p2 = Point(3, 4)
-    println(s"\\nDistance from $p1 to $p2: ${p1.distanceTo(p2)}")
+    println(s"\\nDistance from \${p1} to \${p2}: \${p1.distanceTo(p2)}")
   }
 }`,
-
   pattern: `object PatternMatching {
   def describe(x: Any): String = x match {
     case 0          => "zero"
-    case n: Int     => if (n > 0) s"positive int: $n" else s"negative int: $n"
-    case s: String  => s"string of length ${s.length}: '$s'"
+    case n: Int     => if (n > 0) s"positive int: \${n}" else s"negative int: \${n}"
+    case s: String  => s"string of length \${s.length}: '\${s}'"
     case true       => "boolean true"
     case false      => "boolean false"
     case _          => "unknown"
   }
-
   sealed trait Shape
   case class Circle(radius: Double) extends Shape
   case class Rectangle(w: Double, h: Double) extends Shape
-
   def area(shape: Shape): Double = shape match {
-    case Circle(r)        => math.Pi * r * r
-    case Rectangle(w, h)  => w * h
+    case Circle(r)       => math.Pi * r * r
+    case Rectangle(w, h) => w * h
   }
-
   def main(args: Array[String]): Unit = {
     List(0, 42, -7, "hello", true).foreach(x => println(describe(x)))
-    println(s"\\nCircle area (r=5):       ${area(Circle(5)).formatted("%.2f")}")
-    println(s"Rectangle area (4x6):    ${area(Rectangle(4, 6))}")
+    println(s"\\nCircle area (r=5):       \${area(Circle(5)).formatted("%.2f")}")
+    println(s"Rectangle area (4x6):    \${area(Rectangle(4, 6))}")
   }
 }`
 };
@@ -213,12 +192,6 @@ function simulateScala(code) {
     return { output, errors };
   }
 
-  // Extract println / print calls
-  const printlnRegex = /println\(s?"((?:[^"\\]|\\.)*)"\)/g;
-  const printlnInterp = /println\(s"((?:[^"\\]|\\.)*?)"\)/g;
-  const printlnExpr = /println\(([^)]+)\)/g;
-
-  // Collect all variable assignments for interpolation
   const vars = {};
   const valRegex = /(?:val|var)\s+(\w+)(?:\s*:\s*\w+)?\s*=\s*(.+)/g;
   let m;
@@ -232,15 +205,14 @@ function simulateScala(code) {
     else vars[key] = raw;
   }
 
-  // Per-example hardcoded simulation (clean, no duplicates)
   if (code.includes("Hello, World!")) {
     output.push("Hello, World!");
     output.push("Welcome to Scala Editor!");
     output.push("Scala version: 3.3 (simulated)");
   } else if (code.includes("val name") && code.includes("val age")) {
-    output.push(`Name: ${vars.name || "Lakshay"}`);
-    output.push(`Age: ${vars.age || 21}`);
-    output.push(`Score: ${vars.score || 98.5}`);
+    output.push("Name: Lakshay");
+    output.push("Age: 21");
+    output.push("Score: 98.5");
     output.push("Ready: true");
     output.push("Type of score: Double");
     output.push("Updated score: 99.0");
@@ -274,7 +246,6 @@ function simulateScala(code) {
     output.push("\nCircle area (r=5):       78.54");
     output.push("Rectangle area (4x6):    24.0");
   } else {
-    // Generic: extract println strings
     const lines = code.split("\n");
     for (const line of lines) {
       const t = line.trim();
@@ -296,22 +267,24 @@ function simulateScala(code) {
 
 /* ─── Init Editor ─── */
 function initScalaEditor() {
-  const editor      = document.getElementById("seEditor");
-  const outputBody  = document.getElementById("seOutputBody");
-  const consoleBody = document.getElementById("seConsoleBody");
-  const runBtn      = document.getElementById("seRunBtn");
-  const resetBtn    = document.getElementById("seResetBtn");
-  const copyBtn     = document.getElementById("seCopyBtn");
-  const saveBtn     = document.getElementById("seSaveBtn");
+  const editor = document.getElementById("seEditor");
+  if (!editor) return;
+  const outputBody    = document.getElementById("seOutputBody");
+  const consoleBody   = document.getElementById("seConsoleBody");
+  const runBtn        = document.getElementById("seRunBtn");
+  const resetBtn      = document.getElementById("seResetBtn");
+  const copyBtn       = document.getElementById("seCopyBtn");
+  const saveBtn       = document.getElementById("seSaveBtn");
   const exampleSelect = document.getElementById("seExampleSelect");
   const lineNumbers   = document.getElementById("seLineNumbers");
   const statusBadge   = document.getElementById("seStatusBadge");
   const consoleClear  = document.getElementById("seConsoleClear");
 
   const SAVE_KEY = "scala-editor-draft";
-
-  editor.value = localStorage.getItem(SAVE_KEY) || SCALA_EXAMPLES.hello;
+  const saved = localStorage.getItem(SAVE_KEY);
+  editor.value = (saved && saved.trim().length > 0) ? saved : SCALA_EXAMPLES.hello;
   updateLines();
+  runCode();
 
   exampleSelect.addEventListener("change", () => {
     editor.value = SCALA_EXAMPLES[exampleSelect.value];
