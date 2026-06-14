@@ -237,7 +237,7 @@ function showResult() {
     <div class="pt-result-grid">
       <div class="pt-result-stat"><span>${state.correct}</span><label>Correct</label></div>
       <div class="pt-result-stat"><span>${acc}%</span><label>Accuracy</label></div>
-      <div class="pt-result-stat"><span>${state.streak}</span><label>Best Streak</label></div>
+      <div class="pt-result-stat"><span>${state.streak}</span><label>Final Streak</label></div>
     </div>`;
 
   document.getElementById("ptResultModal").classList.add("active");
