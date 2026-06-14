@@ -87,7 +87,7 @@
   justify-content: center;
   border-radius: 8px;
   border: 2px solid var(--glass-border);
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -150,7 +150,7 @@
   transform: translateX(-50%);
   font-size: 0.62rem;
   color: var(--text-secondary);
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
 }
 
 /* Graph nodes for BFS/DFS */
@@ -170,7 +170,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -222,7 +222,7 @@
 
 /* Code panel */
 .drs-code-panel {
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.82rem;
   line-height: 1.7;
   background: #0d1117;
@@ -269,7 +269,7 @@
 /* Step counter */
 .drs-step-counter {
   text-align: center;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.88rem;
   color: var(--text-secondary);
   margin: 0.75rem 0;
@@ -291,7 +291,7 @@
   border-radius: 8px;
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--glass-border);
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.8rem;
   transition: background 0.2s ease;
 }
