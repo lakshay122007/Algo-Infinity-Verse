@@ -517,7 +517,13 @@ function initEvolution() {
   let active = PROBLEMS[0].id;
 
   tabsEl.innerHTML = PROBLEMS.map(p => `
-    <button class="se-problem-tab${p.id === active ? " active" : ""}" data-id="${p.id}" aria-label="View ${p.title}">
+<button
+   class="se-problem-tab${p.id === active ? " active" : ""}"
+   data-id="${p.id}"
+   role="tab"
+   aria-selected="${p.id === active ? "true" : "false"}"
+   aria-controls="seProblemCard"
+   aria-label="View ${p.title}">
       ${p.title}
     </button>`).join("");
 

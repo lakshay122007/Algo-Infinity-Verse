@@ -132,7 +132,7 @@
 }
 
 .se-problem-example {
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.82rem;
   background: rgba(255,255,255,0.03);
   border: 1px solid var(--glass-border);
@@ -215,7 +215,7 @@
 }
 
 .se-chip {
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.78rem;
   font-weight: 700;
   padding: 0.25rem 0.65rem;
@@ -260,7 +260,7 @@
   font-size: 0.72rem;
 }
 
-.se-code-lang { font-family: Fira Code, monospace; color: #a78bfa; font-weight: 700; }
+.se-code-lang { font-family: "Fira Code", monospace; color: #a78bfa; font-weight: 700; }
 
 .se-copy-btn {
   background: none;
@@ -281,7 +281,7 @@
   padding: 1rem 1.25rem;
   background: #0d1117;
   overflow-x: auto;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.82rem;
   line-height: 1.7;
   color: #e6edf3;
@@ -363,7 +363,7 @@
   display: flex;
   align-items: center;
   padding-left: 0.75rem;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.78rem;
   font-weight: 700;
   color: #fff;
