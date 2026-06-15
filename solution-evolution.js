@@ -21,12 +21,12 @@ function initDarkMode() {
   const toggle = document.getElementById("darkModeToggle");
   if (!toggle) return;
   const icon = toggle.querySelector("i");
-  if (localStorage.getItem("darkMode") === "light") { document.body.classList.add("light-mode"); icon.classList.replace("fa-moon", "fa-sun"); }
+  if (localStorage.getItem("darkMode") === "light") { document.body.classList.add("light-mode"); icon?.classList.replace("fa-moon", "fa-sun"); }
   toggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
     const isLight = document.body.classList.contains("light-mode");
-    icon.classList.toggle("fa-moon", !isLight);
-    icon.classList.toggle("fa-sun", isLight);
+    icon?.classList.toggle("fa-moon", !isLight);
+    icon?.classList.toggle("fa-sun", isLight);
     localStorage.setItem("darkMode", isLight ? "light" : "dark");
   });
 }
