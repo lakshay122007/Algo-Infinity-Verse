@@ -475,7 +475,11 @@ function renderProblem(problem) {
         btn.textContent = "Copied!";
         btn.classList.add("copied");
         setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 2000);
-      } catch { btn.textContent = "Copy"; }
+      } catch {
+        btn.textContent = "Failed";
+        btn.classList.add("error");
+        setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("error"); }, 2000);
+      }
     });
   });
 
