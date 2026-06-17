@@ -26,13 +26,24 @@ function initDarkMode() {
   const toggle = document.getElementById("darkModeToggle");
   if (!toggle) return;
   const icon = toggle.querySelector("i");
-  if (localStorage.getItem("darkMode") === "light") { document.body.classList.add("light-mode"); icon.classList.replace("fa-moon", "fa-sun"); }
+  try {
+    if (localStorage.getItem("darkMode") === "light") { 
+      document.body.classList.add("light-mode"); 
+      icon.classList.replace("fa-moon", "fa-sun"); 
+    }
+  } catch (e) {
+    console.warn("localStorage unavailable:", e);
+  }
   toggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
     const isLight = document.body.classList.contains("light-mode");
     icon.classList.toggle("fa-moon", !isLight);
     icon.classList.toggle("fa-sun", isLight);
-    localStorage.setItem("darkMode", isLight ? "light" : "dark");
+      try {
+     localStorage.setItem("darkMode", isLight ? "light" : "dark");
+    } catch (e) {
+      console.warn("Could not save dark mode preference:", e);
+    }
   });
 }
 
@@ -130,11 +141,16 @@ function initCopyButtons() {
         ta.style.cssText = "position:fixed;opacity:0";
         document.body.appendChild(ta);
         ta.select();
-        document.execCommand("copy");
+        const success = document.execCommand("copy");
         document.body.removeChild(ta);
-        btn.textContent = "Copied!";
-        btn.classList.add("copied");
-        setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 2000);
+        if (success) {
+          btn.textContent = "Copied!";
+          btn.classList.add("copied");
+          setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 2000);
+        } else {
+          btn.textContent = "Failed";
+          setTimeout(() => { btn.textContent = "Copy"; }, 2000);
+        }
       }
     });
   });
@@ -195,7 +211,14 @@ function initProgressTracker() {
         if (topic && !completed.has(topic)) { completed.add(topic); changed = true; }
       }
     });
-    if (changed) { localStorage.setItem(STORAGE_KEY, JSON.stringify([...completed])); updateUI(); }
+     if (changed) {
+     try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...completed]));
+      } catch (e) {
+        console.warn("Could not save progress:", e);
+      }
+      updateUI();
+    }
   }, { threshold: 0.15, rootMargin: "0px 0px -20% 0px" });
 
   document.querySelectorAll(".js-lesson").forEach(l => observer.observe(l));
