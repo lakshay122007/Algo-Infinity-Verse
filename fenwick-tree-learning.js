@@ -110,6 +110,7 @@ function initNavbar() {
 
   window.addEventListener("resize", () => {
     if (!isMobile()) {
+      toggleMenu(false);
       document.querySelectorAll(".has-dropdown.open").forEach((el) => el.classList.remove("open"));
       document.querySelectorAll(".dropdown-toggle").forEach((btn) => btn.setAttribute("aria-expanded", "false"));
     }
