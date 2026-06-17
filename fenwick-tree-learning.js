@@ -93,11 +93,17 @@ function initNavbar() {
       if (!isMobile()) { timer = setTimeout(() => { parent.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }, 250); }
     });
     btn.addEventListener("click", (e) => {
-      if (isMobile()) {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = parent.classList.toggle("open");
-        btn.setAttribute("aria-expanded", String(isOpen));
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = parent.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        parent.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.focus();
       }
     });
   });

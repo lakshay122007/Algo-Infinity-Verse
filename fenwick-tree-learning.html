@@ -350,7 +350,7 @@ tree[<span class="tok-num">4</span>] = arr[<span class="tok-num">1</span>...<spa
 // Update index 3 by +5:
 // i=3: tree[3] += 5, i = 3 + lowbit(3) = 3+1 = 4
 // i=4: tree[4] += 5, i = 4 + lowbit(4) = 4+4 = 8
-// i=8: tree[8] += 5, i = 8 + lowbit(8) = 8+8 = 16 > n, stop">Copy</button>
+// i=8: tree[8] += 5, i = 8 + lowbit(8) = 8+8 = 16 &gt; n, stop">Copy</button>
                 </div>
                 <pre><code><span class="tok-fn">update</span>(i, delta) {
   <span class="tok-kw">while</span> (i &lt;= <span class="tok-kw">this</span>.n) {
@@ -362,7 +362,7 @@ tree[<span class="tok-num">4</span>] = arr[<span class="tok-num">1</span>...<spa
 <span class="tok-cmt">// Update index 3 by +5 (n=8):</span>
 <span class="tok-cmt">// i=3 → tree[3]+=5, i=3+1=4</span>
 <span class="tok-cmt">// i=4 → tree[4]+=5, i=4+4=8</span>
-<span class="tok-cmt">// i=8 → tree[8]+=5, i=8+8=16 > n, stop</span></code></pre>
+<span class="tok-cmt">// i=8 → tree[8]+=5, i=8+8=16 &gt n, stop</span></code></pre>
               </div>
               <div class="js-callout">
                 <span class="js-callout-icon">⚡</span>
@@ -380,7 +380,7 @@ i=8: tree[8]+=3, lowbit(8)=8, i=8+8=16 > 8, stop
 Nodes updated: tree[5], tree[6], tree[8]">Copy</button></div>
                     <pre><code>i=<span class="tok-num">5</span>: tree[<span class="tok-num">5</span>]+=<span class="tok-num">3</span>, lowbit=<span class="tok-num">1</span>, i=<span class="tok-num">6</span>
 i=<span class="tok-num">6</span>: tree[<span class="tok-num">6</span>]+=<span class="tok-num">3</span>, lowbit=<span class="tok-num">2</span>, i=<span class="tok-num">8</span>
-i=<span class="tok-num">8</span>: tree[<span class="tok-num">8</span>]+=<span class="tok-num">3</span>, lowbit=<span class="tok-num">8</span>, i=<span class="tok-num">16</span> > <span class="tok-num">8</span>, stop
+i=<span class="tok-num">8</span>: tree[<span class="tok-num">8</span>]+=<span class="tok-num">3</span>, lowbit=<span class="tok-num">8</span>, i=<span class="tok-num">16</span> &gt <span class="tok-num">8</span>, stop
 Nodes updated: tree[<span class="tok-num">5</span>], tree[<span class="tok-num">6</span>], tree[<span class="tok-num">8</span>] ✅</code></pre>
                   </div>
                 </div>
@@ -501,7 +501,7 @@ console.log(bit.rangeQuery(2, 4)); // 2+13+4 = 19">Copy</button>
   }
   <span class="tok-fn">query</span>(i) {
     <span class="tok-kw">let</span> s = <span class="tok-num">0</span>;
-    <span class="tok-kw">for</span> (; i > <span class="tok-num">0</span>; i -= i & -i)
+    <span class="tok-kw">for</span> (; i &gt <span class="tok-num">0</span>; i -= i & -i)
       s += <span class="tok-kw">this</span>.tree[i];
     <span class="tok-kw">return</span> s;
   }
@@ -538,7 +538,7 @@ bit.rangeQuery(2, 4) → 19  (after update(3, +10))</pre>
                 <span class="js-lesson-number">07</span>
                 <h3>Inversion Count Problem</h3>
               </div>
-              <p>Count the number of inversions in an array — pairs <code>(i, j)</code> where <code>i &lt; j</code> but <code>arr[i] > arr[j]</code>. BIT solves this in O(n log n).</p>
+              <p>Count the number of inversions in an array — pairs <code>(i, j)</code> where <code>i &lt; j</code> but <code>arr[i] &gt arr[j]</code>. BIT solves this in O(n log n).</p>
               <div class="js-concept-card">
                 <h4>Algorithm</h4>
                 <ul>
@@ -574,12 +574,12 @@ console.log(countInversions([3, 1, 2])); // 2
                 </div>
                 <pre><code><span class="tok-kw">function</span> <span class="tok-fn">countInversions</span>(arr) {
   <span class="tok-kw">const</span> n = arr.length;
-  <span class="tok-kw">const</span> sorted = [...<span class="tok-kw">new</span> Set(arr)].sort((a, b) => a - b);
-  <span class="tok-kw">const</span> rank = <span class="tok-kw">new</span> Map(sorted.map((v, i) => [v, i + <span class="tok-num">1</span>]));
+  <span class="tok-kw">const</span> sorted = [...<span class="tok-kw">new</span> Set(arr)].sort((a, b) =&gt a - b);
+  <span class="tok-kw">const</span> rank = <span class="tok-kw">new</span> Map(sorted.map((v, i) =&gt [v, i + <span class="tok-num">1</span>]));
   <span class="tok-kw">const</span> bit = <span class="tok-kw">new</span> <span class="tok-bi">BIT</span>(sorted.length);
   <span class="tok-kw">let</span> inversions = <span class="tok-num">0</span>;
 
-  <span class="tok-kw">for</span> (<span class="tok-kw">let</span> i = n - <span class="tok-num">1</span>; i >= <span class="tok-num">0</span>; i--) {
+  <span class="tok-kw">for</span> (<span class="tok-kw">let</span> i = n - <span class="tok-num">1</span>; i &gt= <span class="tok-num">0</span>; i--) {
     <span class="tok-kw">const</span> r = rank.get(arr[i]);
     inversions += bit.query(r - <span class="tok-num">1</span>); <span class="tok-cmt">// smaller to right</span>
     bit.update(r, <span class="tok-num">1</span>);
