@@ -115,7 +115,12 @@
   height: 6px;
   border-radius: 3px;
   background: rgba(255,255,255,0.1);
-  outline: none;
+outline: none;
+ }
+
+.arena-range:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 3px;
 }
 
 .arena-range::-webkit-slider-thumb {
@@ -216,7 +221,7 @@
 }
 
 .arena-metric-val {
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -326,7 +331,7 @@
 .arena-bar-val {
   position: absolute;
   right: 6px;
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -392,7 +397,7 @@
 .arena-edu-key { color: var(--text-secondary); }
 
 .arena-edu-val {
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-weight: 600;
   color: var(--accent);
 }

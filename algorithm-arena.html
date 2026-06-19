@@ -142,7 +142,7 @@
               <span class="arena-panel-badge arena-badge-a">A</span>
             </div>
             <canvas class="arena-canvas" id="arenaCanvasA" aria-label="Algorithm A visualization"></canvas>
-            <div class="arena-metrics" id="arenaMetricsA">
+            <div class="arena-metrics" id="arenaMetricsA" aria-live="polite" aria-atomic="true">
               <div class="arena-metric">
                 <span class="arena-metric-label">Comparisons</span>
                 <span class="arena-metric-val" id="arenaCompsA">0</span>
@@ -156,12 +156,12 @@
                 <span class="arena-metric-val" id="arenaTimeA">0</span>
               </div>
             </div>
-            <div class="arena-status" id="arenaStatusA">Ready</div>
+            <div class="arena-status" id="arenaStatusA" role="status" aria-live="polite">Ready</div>
           </div>
 
           <!-- Winner Banner (hidden until done) -->
-          <div class="arena-winner-banner hidden" id="arenaWinnerBanner">
-            <div class="arena-winner-content" id="arenaWinnerContent"></div>
+        <div class="arena-winner-banner hidden" id="arenaWinnerBanner" role="status" aria-live="assertive" aria-atomic="true">
+        <div class="arena-winner-content" id="arenaWinnerContent"></div>
           </div>
 
           <!-- Fighter B Panel -->
@@ -171,7 +171,7 @@
               <span class="arena-panel-name" id="arenaPanelNameB">Quick Sort</span>
             </div>
             <canvas class="arena-canvas" id="arenaCanvasB" aria-label="Algorithm B visualization"></canvas>
-            <div class="arena-metrics" id="arenaMetricsB">
+            <div class="arena-metrics" id="arenaMetricsB" aria-live="polite" aria-atomic="true">
               <div class="arena-metric">
                 <span class="arena-metric-label">Comparisons</span>
                 <span class="arena-metric-val" id="arenaCompsB">0</span>
@@ -185,7 +185,7 @@
                 <span class="arena-metric-val" id="arenaTimeB">0</span>
               </div>
             </div>
-            <div class="arena-status" id="arenaStatusB">Ready</div>
+            <div class="arena-status" id="arenaStatusB" role="status" aria-live="polite">Ready</div>
           </div>
 
         </div>

@@ -88,7 +88,7 @@ function arenaStepsInsertion(arr) {
       a[j + 1] = a[j]; j--;
       steps.push({ arr: a.slice(), hi: [j+1, j+2], sorted: [], comps: comps, swaps: swaps });
     }
-    comps++;
+    if (j >= 0) comps++;
     a[j + 1] = key;
     steps.push({ arr: a.slice(), hi: [j+1], sorted: [], comps: comps, swaps: swaps });
   }
@@ -158,10 +158,14 @@ function arenaStepsHeap(arr) {
   var a = arr.slice(), steps = [], n = a.length, comps = 0, swaps = 0;
   function heapify(arr, n, i) {
     var largest = i, l = 2*i+1, r = 2*i+2;
-    comps++;
-    if (l < n && arr[l] > arr[largest]) largest = l;
-    comps++;
-    if (r < n && arr[r] > arr[largest]) largest = r;
+    if (l < n) {
+      comps++;
+      if (arr[l] > arr[largest]) largest = l;
+    }
+    if (r < n) {
+      comps++;
+      if (arr[r] > arr[largest]) largest = r;
+    }
     if (largest !== i) {
       var tmp = arr[i]; arr[i] = arr[largest]; arr[largest] = tmp;
       swaps++;
