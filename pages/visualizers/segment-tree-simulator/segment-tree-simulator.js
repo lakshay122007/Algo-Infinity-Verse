@@ -429,13 +429,8 @@ function stDoUpdate() {
   // Clone tree for step generation (stGenUpdateSteps mutates it)
   var treeCopy = stState.tree.slice();
   stState.steps   = stGenUpdateSteps(treeCopy, n, idx, val, oldVal);
-  // Apply actual update to live tree and arr
-  stState.arr[idx] = val;
-  stState.tree     = stBuild(stState.arr);
-  // Refresh layout values
-  Object.keys(stState.nodePos).forEach(function(k) {
-    stState.nodePos[k].val = stState.tree[k];
-  });
+  // Defer applying to live state until animation completes
+  stState.pendingUpdate = { idx: idx, val: val };
 
   stState.stepIdx = 0;
   stUpdateStepCounter();
