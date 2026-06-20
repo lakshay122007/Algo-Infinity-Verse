@@ -78,7 +78,7 @@
 
 .sds-phase-preview-icon  { font-size: 1.1rem; }
 .sds-phase-preview-name  { font-size: 0.72rem; font-weight: 700; color: var(--text-primary); }
-.sds-phase-preview-time  { font-family: Fira Code, monospace; font-size: 0.68rem; color: var(--text-secondary); }
+.sds-phase-preview-time  { font-family: "Fira Code", monospace; font-size: 0.68rem; color: var(--text-secondary); }
 .sds-phase-arrow         { color: var(--text-secondary); font-size: 1rem; }
 
 /* Options */
@@ -444,7 +444,7 @@
 }
 
 .sds-rubric-bar-val {
-  font-family: Fira Code, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.78rem;
   color: var(--text-secondary);
   text-align: right;
