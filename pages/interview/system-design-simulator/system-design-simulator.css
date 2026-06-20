@@ -155,9 +155,9 @@
 }
 
 .sds-timer.warning { color: #f59e0b; }
-.sds-timer.danger  { color: #ef4444; animation: sdsTimerPulse 1s ease infinite; }
+.sds-timer.danger  { color: `#ef4444`; animation: sds-timer-pulse 1s ease infinite; }
 
-@keyframes sdsTimerPulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+`@keyframes` sds-timer-pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
 
 .sds-end-btn { font-size: 0.82rem; padding: 0.45rem 0.9rem; }
 
