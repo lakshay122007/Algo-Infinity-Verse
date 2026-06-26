@@ -103,10 +103,10 @@
         </div>
 
         <!-- Status -->
-        <div class="bf-status" id="bfStatus">Select a preset and click Run to begin.</div>
+        <div class="bf-status" id="bfStatus" role="status" aria-live="polite" aria-atomic="true">Select a preset and click Run to begin.</div>
 
         <!-- Negative cycle warning -->
-        <div class="bf-neg-cycle-banner hidden" id="bfNegCycleBanner">
+        <div class="bf-neg-cycle-banner hidden" id="bfNegCycleBanner" role="alert" aria-live="assertive" aria-atomic="true">
           <i class="fas fa-exclamation-triangle"></i>
           <span>⚠️ Negative cycle detected! Shortest paths are undefined — distances approach −∞.</span>
         </div>
@@ -122,7 +122,7 @@
           <!-- Distance table -->
           <div class="bf-dist-panel">
             <div class="bf-dist-title">Distance Table</div>
-            <div class="bf-pass-label" id="bfPassLabel">Pass: —</div>
+            <div class="bf-pass-label" id="bfPassLabel" aria-live="polite" aria-atomic="true">Pass: —</div>
             <table class="bf-dist-table" id="bfDistTable">
               <thead><tr><th>Node</th><th>Distance</th><th>Via</th></tr></thead>
               <tbody id="bfDistBody"></tbody>
@@ -131,13 +131,13 @@
             <!-- SPFA Queue -->
             <div class="bf-queue-wrap hidden" id="bfQueueWrap">
               <div class="bf-dist-title" style="margin-top:1rem">SPFA Queue</div>
-              <div class="bf-queue-row" id="bfQueueRow"></div>
+              <div class="bf-queue-row" id="bfQueueRow" aria-live="polite" aria-label="SPFA queue"></div>
             </div>
 
             <!-- Edge relaxation log -->
             <div class="bf-relax-log-wrap">
               <div class="bf-dist-title" style="margin-top:1rem">Relaxation Log</div>
-              <div class="bf-relax-log" id="bfRelaxLog">
+              <div class="bf-relax-log" id="bfRelaxLog" aria-live="polite" aria-relevant="additions text">
                 <div class="bf-relax-empty">No relaxations yet.</div>
               </div>
             </div>
