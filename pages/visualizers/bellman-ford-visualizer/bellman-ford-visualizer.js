@@ -531,7 +531,7 @@ function bfApplyStep(step) {
   // Negative cycle banner
   var banner = document.getElementById('bfNegCycleBanner');
   if (banner) {
-    if (step.negCycle) banner.classList.remove('hidden');
+    banner.classList.toggle('hidden', !step.negCycle);
   }
 
   bfDraw(step);
