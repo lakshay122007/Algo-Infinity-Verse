@@ -121,7 +121,7 @@ function smZSearch(text, pat) {
     }
     Z[i] = zi;
 
-    if (zi > 0 && (i >= R)) {
+    if (zi > 0 && i + zi > R) {
       L = i; R = i + zi;
       steps.push({ type: 'z-update-box', i: i, L: L, R: R, Z: Z.slice(),
         msg: 'Update Z-box: L=' + L + ', R=' + R + '. Z[' + i + ']=' + Z[i] });
