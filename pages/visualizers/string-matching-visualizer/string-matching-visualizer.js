@@ -521,8 +521,10 @@ function smStep() {
 /* ─── Run ─── */
 function smRun() {
   smStopPlay();
-  var text = smGetText().trim();
-  var pat  = smGetPattern().trim();
+  var text = smGetText();
+  var pat  = smGetPattern();
+
+  if (text.length === 0 || pat.length === 0) {
 
   if (!text || !pat) {
     var el = document.getElementById('smStatus');
