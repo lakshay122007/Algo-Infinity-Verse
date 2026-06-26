@@ -40,13 +40,14 @@ function smKmpFailure(pat) {
     }
     if (pat[i] === pat[k]) {
       k++;
+      fail[i] = k;
       steps.push({ type: 'fail-match', i: i, k: k - 1, fail: fail.slice(),
         msg: 'pat[' + i + ']="' + pat[i] + '" = pat[' + (k-1) + ']: fail[' + i + '] = ' + k });
     } else {
+      fail[i] = 0;
       steps.push({ type: 'fail-zero', i: i, k: 0, fail: fail.slice(),
         msg: 'No match: fail[' + i + '] = 0' });
     }
-    fail[i] = k;
   }
   return { fail: fail, steps: steps };
 }
