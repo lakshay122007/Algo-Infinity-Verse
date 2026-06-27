@@ -124,8 +124,11 @@ function mpUpdateStats() {
 
 /* ─── Allocate cells ─── */
 function mpAlloc(startAddr, count, type, values, label, dsId) {
+  if (startAddr < 0 || count < 0 || startAddr + count > MP_CELLS) return false;
+  for (var j = 0; j < count; j++) {
+    if (mpMem[startAddr + j].type !== 'free') return false;
+  }
   for (var i = 0; i < count; i++) {
-    if (startAddr + i >= MP_CELLS) break;
     mpMem[startAddr + i] = {
       type  : type,
       value : Array.isArray(values) ? values[i] : values,
@@ -134,6 +137,8 @@ function mpAlloc(startAddr, count, type, values, label, dsId) {
       addr  : startAddr + i,
     };
   }
+  return true;
+}
 }
 
 /* ─── Free cells ─── */
