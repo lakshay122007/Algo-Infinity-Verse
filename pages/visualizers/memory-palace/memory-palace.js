@@ -62,9 +62,10 @@ function mpRenderGrid() {
         displayVal = String(cell.value).substring(0, 4);
       }
     }
-    return '<div class="' + cls + '" data-addr="' + i + '" title="Addr: 0x' + i.toString(16).toUpperCase().padStart(2,'0') + ' | ' + (cell.type === 'free' ? 'FREE' : cell.label || cell.type) + '">' +
+    var cellTitle = 'Addr: 0x' + i.toString(16).toUpperCase().padStart(2,'0') + ' | ' + (cell.type === 'free' ? 'FREE' : cell.label || cell.type);
+    return '<button type="button" class="' + cls + '" data-addr="' + i + '" title="' + cellTitle + '" aria-label="' + cellTitle + '">' +
       '<span class="mp-cell-val">' + displayVal + '</span>' +
-    '</div>';
+    '</button>';
   }).join('');
 
   // Click handlers
