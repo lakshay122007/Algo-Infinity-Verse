@@ -561,8 +561,14 @@ function mpRenderOps() {
 
 /* ─── Execute operation ─── */
 function mpExecute() {
-  var val = parseInt((document.getElementById('mpValue') || {}).value || 0);
-  if (isNaN(val)) { mpSetStatus('Enter a valid integer value.', 'error'); return; }
+  var valueOps = ['push', 'access', 'insert head', 'insert tail', 'enqueue', 'put', 'get', 'delete', 'insert'];
+  var needsValue = valueOps.indexOf(mpCurrentOp) !== -1;
+  var rawValue = ((document.getElementById('mpValue') || {}).value || '').trim();
+  var val = 0;
+  if (needsValue) {
+    if (!/^-?\d+$/.test(rawValue)) { mpSetStatus('Enter a valid integer value.', 'error'); return; }
+    val = Number(rawValue);
+  }
 
   switch (mpCurrentDs) {
     case 'array':
