@@ -428,6 +428,14 @@ function mpHashMapPut(val) {
 
   // Simple open addressing — check if slot taken
   var collision = mpMem[addr].type !== 'free' && mpMem[addr].value !== key;
+  var key  = val % 100;
+  var existing = st.entries.find(function(e) { return e.key === key; });
+  if (!existing && st.entries.length >= st.cap) {
+    mpSetStatus('Hash map full! Cannot insert key ' + key + '.', 'error');
+    return;
+  }
+  var slot = mpHash(key);
+
   if (collision) {
     // Linear probe
     var orig = slot;
