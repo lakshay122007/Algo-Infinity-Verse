@@ -554,17 +554,19 @@ function mpRenderOps() {
   var wrap = document.getElementById('mpOpsWrap');
   if (!wrap) return;
   var ops = MP_DS_OPS[mpCurrentDs] || [];
+  if (ops.indexOf(mpCurrentOp) === -1) mpCurrentOp = ops[0] || '';
   wrap.innerHTML = ops.map(function(op) {
-    return '<button class="mp-op-btn' + (op === mpCurrentOp ? ' active' : '') + '" data-op="' + op + '">' + op + '</button>';
+    var active = op === mpCurrentOp;
+    return '<button type="button" class="mp-op-btn' + (active ? ' active' : '') + '" data-op="' + op + '" aria-pressed="' + active + '">' + op + '</button>';
   }).join('');
   wrap.querySelectorAll('.mp-op-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      wrap.querySelectorAll('.mp-op-btn').forEach(function(b) { b.classList.remove('active'); });
+      wrap.querySelectorAll('.mp-op-btn').forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       mpCurrentOp = btn.getAttribute('data-op');
     });
   });
-  mpCurrentOp = ops[0] || '';
 }
 
 /* ─── Execute operation ─── */
