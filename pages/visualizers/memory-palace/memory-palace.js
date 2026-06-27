@@ -148,11 +148,14 @@ function mpFree(addrs) {
 function mpFlashCells(addrs) {
   if (!document.getElementById('mpAnimate') || !document.getElementById('mpAnimate').checked) return;
   addrs.forEach(function(addr) {
-    var cellEl = document.querySelector('[data-addr="' + addr + '"]');
-    if (cellEl) {
-      cellEl.classList.add('mp-active');
-      setTimeout(function() { cellEl.classList.remove('mp-active'); }, 500);
-    }
+    setTimeout(function() {
+      var cellEl = document.querySelector('[data-addr="' + addr + '"]');
+      if (cellEl) {
+        cellEl.classList.add('mp-active');
+        setTimeout(function() { cellEl.classList.remove('mp-active'); }, 500);
+      }
+    }, 0);
+  });
   });
 }
 
