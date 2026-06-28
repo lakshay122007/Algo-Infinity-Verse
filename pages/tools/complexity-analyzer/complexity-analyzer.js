@@ -430,7 +430,7 @@ function caRenderVerdict(result) {
     '</div>';
 
   card.style.borderColor = caGetBorderColor(result.time);
-}
+
 
 function caGetBorderColor(c) {
   var map = { 'O(1)':'rgba(100,116,139,0.35)','O(log n)':'rgba(34,197,94,0.35)','O(n)':'rgba(6,182,212,0.35)','O(n log n)':'rgba(168,85,247,0.35)','O(n²)':'rgba(245,158,11,0.45)','O(n³)':'rgba(249,115,22,0.45)','O(2ⁿ)':'rgba(239,68,68,0.45)','O(n!)':'rgba(236,72,153,0.5)' };
