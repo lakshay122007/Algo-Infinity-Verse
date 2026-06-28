@@ -492,6 +492,10 @@ function caAnalyze() {
   if (!code.trim()) {
     var verdictCard = document.getElementById('caVerdictCard');
     if (verdictCard) verdictCard.innerHTML = '<div class="ca-verdict-placeholder"><i class="fas fa-exclamation-circle"></i><p>Paste some code first!</p></div>';
+    var annos = document.getElementById('caAnnotations');
+    if (annos) annos.innerHTML = '';
+    caRenderDerivation([]);
+    caRenderPatterns([]);
     return;
   }
 
