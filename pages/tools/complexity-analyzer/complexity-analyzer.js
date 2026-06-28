@@ -268,8 +268,11 @@ function caAnalyzeCode(code) {
 
     // ── Queue shift (common BFS) ──
     else if (!complexity && /\.shift\(\)/.test(line)) {
-      complexity = 'O(n)';
-      reason     = 'Array.shift() is O(n) — each call re-indexes the array. Use a proper queue for O(1).';
+      var shiftDepth = loopStack.filter(function(t) { return t === 'loop' || t === 'halving'; }).length;
+      complexity = shiftDepth === 0 ? 'O(n)' : shiftDepth === 1 ? 'O(n²)' : 'O(n³)';
+      reason     = shiftDepth > 0
+        ? 'Array.shift() inside a loop is O(n) per iteration. Use a proper queue/head index for O(1) dequeue.'
+        : 'Array.shift() is O(n) — each call re-indexes the array. Use a proper queue for O(1).';
       pattern    = 'shift-warning';
     }
 
