@@ -398,6 +398,9 @@ function caRenderAnnotations(lineResults) {
 function caRenderVerdict(result) {
   var card = document.getElementById('caVerdictCard');
   if (!card) return;
+  card.setAttribute('role', 'status');
+  card.setAttribute('aria-live', 'polite');
+  card.setAttribute('aria-atomic', 'true');
 
   var timeCls   = CA_CLASS[result.time]  || 'ca-on';
   var spaceCls  = CA_CLASS[result.space] || 'ca-on';
@@ -419,6 +422,8 @@ function caRenderVerdict(result) {
         '<strong>Why:</strong> ' + caGetExplanation(result.time) +
       '</div>' +
       '<div class="ca-danger-badge ' + dangerCls + '">' + caEsc(dangerLbl) + '</div>' +
+    '</div>'
+}
     '</div>';
 
   card.style.borderColor = caGetBorderColor(result.time);
