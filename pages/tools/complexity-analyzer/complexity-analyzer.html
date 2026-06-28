@@ -94,7 +94,7 @@
           <div class="ca-results-col" id="caResultsCol">
 
             <!-- Verdict card -->
-            <div class="ca-verdict-card" id="caVerdictCard">
+            <div class="ca-verdict-card" id="caVerdictCard" role="status" aria-live="polite" aria-atomic="true">
               <div class="ca-verdict-placeholder">
                 <i class="fas fa-magnifying-glass-chart"></i>
                 <p>Paste code and click Analyze to see your complexity verdict.</p>
@@ -104,7 +104,7 @@
             <!-- Derivation -->
             <div class="ca-derivation-card" id="caDerivationCard">
               <div class="ca-card-title"><i class="fas fa-sitemap"></i> Complexity Derivation</div>
-              <div class="ca-derivation-body" id="caDerivationBody">
+              <div class="ca-derivation-body" id="caDerivationBody" aria-live="polite">
                 <div class="ca-deriv-placeholder">Derivation steps will appear here after analysis.</div>
               </div>
             </div>
@@ -112,7 +112,7 @@
             <!-- Pattern detector -->
             <div class="ca-patterns-card" id="caPatternsCard">
               <div class="ca-card-title"><i class="fas fa-search"></i> Detected Patterns</div>
-              <div class="ca-patterns-body" id="caPatternsBody">
+              <div class="ca-patterns-body" id="caPatternsBody" aria-live="polite">
                 <div class="ca-deriv-placeholder">Recognized code patterns appear here.</div>
               </div>
             </div>
