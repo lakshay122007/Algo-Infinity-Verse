@@ -228,6 +228,8 @@
   gap: 0;
   pointer-events: none;
   min-width: 90px;
+  overflow: hidden;
+  height: 100%;
 }
 
 .ca-anno-line {
