@@ -528,10 +528,16 @@ function caInit() {
     CA_PRESETS.forEach(function(p, i) {
       var btn = document.createElement('button');
       btn.className = 'ca-preset-btn';
+      btn.type = 'button';
+      btn.setAttribute('aria-pressed', 'false');
       btn.textContent = p.label;
       btn.addEventListener('click', function() {
-        presetWrap.querySelectorAll('.ca-preset-btn').forEach(function(b) { b.classList.remove('active'); });
+        presetWrap.querySelectorAll('.ca-preset-btn').forEach(function(b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
         if (editor) {
           editor.value = p.code;
           caRenderLineNums(p.code);
