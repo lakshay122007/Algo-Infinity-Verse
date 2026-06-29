@@ -146,8 +146,16 @@
 
       <!-- Status bar -->
       <div class="puf-status-bar">
-        <span class="puf-status-icon" id="pufStatusIcon">⏸</span>
-        <span class="puf-status-msg" id="pufStatusMsg">Select a mode, draw walls, then click Run. Use Fire! mode to place obstacles mid-path.</span>
+        <span
+          class="puf-status-icon"
+          id="pufStatusIcon">⏸</span>
+        <span
+          class="puf-status-msg"
+          id="pufStatusMsg"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >Select a mode, draw walls, then click Run. Use Fire! mode to place obstacles mid-path.</span>
         <div class="puf-legend">
           <span class="puf-leg"><span class="puf-leg-dot" style="background:#00d4ff"></span>A*</span>
           <span class="puf-leg"><span class="puf-leg-dot" style="background:#22c55e"></span>BFS</span>
