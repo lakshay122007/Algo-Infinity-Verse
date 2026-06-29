@@ -610,8 +610,10 @@ function pufStep() {
     runner.done = true;
     pufSetBadge(pufActiveAlgo, 'found');
     pufSetStatus('✅ Path found! Length: ' + runner.path.length + '. Replans: ' + runner.replans, '✅');
-    document.getElementById('pufStepBtn').disabled  = true;
-    document.getElementById('pufPauseBtn').disabled = true;
+    var stepBtn  = document.getElementById('pufStepBtn');
+    var pauseBtn = document.getElementById('pufPauseBtn');
+    if (stepBtn)  stepBtn.disabled  = true;
+    if (pauseBtn) pauseBtn.disabled = true;
   } else if (result === 'no-path') {
     runner.done = true;
     pufSetBadge(pufActiveAlgo, 'failed');
