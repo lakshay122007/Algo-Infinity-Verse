@@ -130,25 +130,32 @@ function ag2SelectB(id) {
 }
 
 function ag2UpdateGridHighlights() {
+  var carriers = ag2State.highlightedGene ? (AG2_GENE_TO_ALGOS[ag2State.highlightedGene] || []) : [];
+
   // Grid A
-  document.querySelectorAll('#ag2GridA .ag2-algo-card').forEach(function(card) {
+  document.querySelectorAll('`#ag2GridA` .ag2-algo-card').forEach(function(card) {
     card.classList.remove('ag2-selected-a', 'ag2-selected-b', 'ag2-highlighted');
     card.setAttribute('aria-checked', 'false');
     if (card.getAttribute('data-id') === ag2State.selectedA) {
       card.classList.add('ag2-selected-a');
       card.setAttribute('aria-checked', 'true');
+    } else if (ag2State.highlightedGene && carriers.indexOf(card.getAttribute('data-id')) !== -1) {
+      card.classList.add('ag2-highlighted');
     }
   });
 
   // Grid B
-  document.querySelectorAll('#ag2GridB .ag2-algo-card').forEach(function(card) {
+  document.querySelectorAll('`#ag2GridB` .ag2-algo-card').forEach(function(card) {
     card.classList.remove('ag2-selected-a', 'ag2-selected-b', 'ag2-highlighted');
     card.setAttribute('aria-checked', 'false');
     if (card.getAttribute('data-id') === ag2State.selectedB) {
       card.classList.add('ag2-selected-b');
       card.setAttribute('aria-checked', 'true');
+    } else if (ag2State.highlightedGene && carriers.indexOf(card.getAttribute('data-id')) !== -1) {
+      card.classList.add('ag2-highlighted');
     }
   });
+}
 }
 
 /* ─── Gene pool click: highlight all algorithms with that gene ─── */
