@@ -121,11 +121,27 @@
   transition: all 0.18s ease;
 }
 
+.puf-algo-btn:focus-visible,
+.puf-mode-btn:focus-visible,
+.puf-pb-btn:focus-visible,
+.puf-preset-btn:focus-visible,
+.puf-range:focus-visible {
+  outline: 2px solid `#fff`;
+  outline-offset: 2px;
+  border-color: `#fff`;
+}
+
+.puf-opt-label:focus-within {
+  outline: 2px solid `#fff`;
+  outline-offset: 2px;
+  border-color: `#fff`;
+}
+
 .puf-algo-btn:hover { color: var(--text-primary); }
 .puf-algo-btn.active {
   background: rgba(var(--ac-rgb, 0,212,255), 0.12);
-  border-color: var(--ac, #00d4ff);
-  color: var(--ac, #00d4ff);
+  border-color: var(--ac, `#00d4ff`);
+  color: var(--ac, `#00d4ff`);
   box-shadow: 0 0 8px rgba(var(--ac-rgb, 0,212,255), 0.15);
 }
 
@@ -157,9 +173,9 @@
   color: var(--text-primary);
 }
 
-.puf-fire-btn { border-color: rgba(239,68,68,0.3) !important; color: #ef4444 !important; }
+.puf-fire-btn { border-color: rgba(239,68,68,0.3) !important; color: `#ef4444` !important; }
 .puf-fire-btn:hover { background: rgba(239,68,68,0.08) !important; }
-.puf-fire-btn.active { background: rgba(239,68,68,0.15) !important; border-color: #ef4444 !important; box-shadow: 0 0 10px rgba(239,68,68,0.2); }
+.puf-fire-btn.active { background: rgba(239,68,68,0.15) !important; border-color: `#ef4444` !important; box-shadow: 0 0 10px rgba(239,68,68,0.2); }
 
 /* Playback buttons */
 .puf-pb-btns { display: flex; gap: 0.3rem; }
@@ -185,9 +201,9 @@
 .puf-pb-btn:not(:disabled):hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
 
 .puf-run-btn {
-  background: linear-gradient(135deg, #ef4444, #f97316);
+  background: linear-gradient(135deg, `#ef4444`, `#f97316`);
   border-color: transparent;
-  color: #fff;
+  color: `#fff`;
   font-weight: 700;
 }
 
@@ -210,7 +226,7 @@
   -webkit-appearance: none;
   width: 14px; height: 14px;
   border-radius: 50%;
-  background: #ef4444;
+  background: `#ef4444`;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(239,68,68,0.4);
 }
@@ -218,7 +234,7 @@
 .puf-speed-val {
   font-family: Fira Code, monospace;
   font-size: 0.68rem;
-  color: #ef4444;
+  color: `#ef4444`;
   font-weight: 700;
   min-width: 55px;
 }
@@ -244,7 +260,7 @@
 }
 
 .puf-opt-label:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
-.puf-check { accent-color: #ef4444; width: 12px; height: 12px; }
+.puf-check { accent-color: `#ef4444`; width: 12px; height: 12px; }
 
 /* Preset buttons */
 .puf-preset-btns { display: flex; gap: 0.3rem; }
