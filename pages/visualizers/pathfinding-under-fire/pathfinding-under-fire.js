@@ -423,6 +423,8 @@ function pufRenderGrid() {
 
     // Reset classes
     cell.className = 'puf-cell';
+    var staleHeat = cell.querySelector('.puf-cell-heat');
+    if (staleHeat) staleHeat.remove();
 
     if (pufIsSource(row, col)) { cell.classList.add('puf-source'); return; }
     if (pufIsTarget(row, col)) { cell.classList.add('puf-target'); return; }
