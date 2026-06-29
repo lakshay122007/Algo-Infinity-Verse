@@ -156,7 +156,7 @@ function ag2UpdateGridHighlights() {
     }
   });
 }
-}
+
 
 /* ─── Gene pool click: highlight all algorithms with that gene ─── */
 function ag2HandleGenePoolClick(geneId) {
