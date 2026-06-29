@@ -65,7 +65,10 @@ function pufNeighbors(row, col) {
 
 /* ─── Heuristic (Manhattan) ─── */
 function pufH(row, col) {
-  return Math.abs(row - pufTarget.row) + Math.abs(col - pufTarget.col);
+  var dr = Math.abs(row - pufTarget.row);
+  var dc = Math.abs(col - pufTarget.col);
+  // Diagonal steps cost 1, so admissible heuristic is Chebyshev distance.
+  return pufDiagonal ? Math.max(dr, dc) : dr + dc;
 }
 
 /* ─── Runner factory ─── */
