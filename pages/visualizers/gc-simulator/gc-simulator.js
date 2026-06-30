@@ -610,7 +610,7 @@ function gcsApplyGcStep() {
 }
 
 function gcsResetGcOnly() {
-  gcsState.nodes.forEach(function(n) { n.marked = false; n.dead = false; });
+  gcsState.nodes.forEach(function(n) { n.marked = false; n.dead = false; n.gen = 'young'; n.age = 0; });
   gcsState.gcSteps = [];
   gcsState.gcStepIdx = 0;
   gcsState.totalFreed = 0;
