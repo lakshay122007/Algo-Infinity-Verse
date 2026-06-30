@@ -444,11 +444,12 @@ function aalDrawChart() {
 
 function aalDrawChartCursor(idx) {
   var canvas = document.getElementById('aalChartCanvas');
-  var layout = aalState._chartLayout;
-  if (!canvas || !layout) return;
+  if (!canvas) return;
 
   // Redraw base chart then add cursor line
   aalDrawChart();
+  var layout = aalState._chartLayout;
+  if (!layout) return;
 
   var ctx = canvas.getContext('2d');
   var x = layout.padding.left + (idx / layout.maxIter) * layout.plotW;
