@@ -126,13 +126,14 @@ function bpRunPredictors(sequence) {
       if (hit) hits++; else misses++;
       track.push(hit ? 'hit' : 'miss');
 
+      p.update(actual);
+
       if (id === 'twobit') fsmStates.push(p.state());
       if (id === 'twolevel') {
         var st = p.state();
         phtSnapshots.push({ history: st.history, pht: Object.assign({}, st.pht) });
       }
-
-      p.update(actual);
+    });
     });
 
     results[id] = {
