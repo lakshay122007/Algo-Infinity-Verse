@@ -107,10 +107,10 @@
             <!-- Query runner -->
             <div class="dp-query-card">
               <div class="dp-panel-title"><i class="fas fa-magnifying-glass-chart"></i> Run Query</div>
-              <div class="dp-query-type-row">
-                <button class="dp-query-type active" data-qtype="mean">Mean</button>
-                <button class="dp-query-type" data-qtype="count">Count (≥ threshold)</button>
-                <button class="dp-query-type" data-qtype="sum">Sum</button>
+              <div class="dp-query-type-row" role="group" aria-label="Query type">
+                <button class="dp-query-type active" data-qtype="mean" aria-pressed="true">Mean</button>
+                <button class="dp-query-type" data-qtype="count" aria-pressed="false">Count (≥ threshold)</button>
+                <button class="dp-query-type" data-qtype="sum" aria-pressed="false">Sum</button>
               </div>
               <div class="dp-threshold-row" id="dpThresholdRow">
                 <label class="dp-threshold-label">Threshold:</label>
