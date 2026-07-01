@@ -230,7 +230,13 @@ function pdRenderTree(versionIdx, compareAIdx, compareBIdx) {
     circle.setAttribute('fill', fillColor);
     circle.setAttribute('stroke', strokeColor);
     circle.setAttribute('stroke-width', isNew ? '2.5' : '1.5');
+    circle.setAttribute('tabindex', '0');
+    circle.setAttribute('role', 'button');
+    circle.setAttribute('aria-label', 'Node ' + node.value + ' (#' + nodeId + ')');
     circle.addEventListener('click', function() { pdInspectNode(nodeId, versionIdx); });
+    circle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pdInspectNode(nodeId, versionIdx); }
+    });
     g.appendChild(circle);
 
     var label = document.createElementNS(PD_NS, 'text');
