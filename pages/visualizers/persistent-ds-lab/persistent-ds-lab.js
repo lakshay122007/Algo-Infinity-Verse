@@ -80,8 +80,11 @@ function pdExecuteOp(opType, value) {
     newRoot = pdDelete(curRoot, value);
   }
 
-  if (newRoot === curRoot && opType === 'delete') {
-    pdSetStatus('Value ' + value + ' not found in v' + pdCurrentVer + ' — no new version created.', '');
+  if (newRoot === curRoot) {
+    var reason = opType === 'delete'
+      ? 'not found in v' + pdCurrentVer
+      : 'already present in v' + pdCurrentVer;
+    pdSetStatus('Value ' + value + ' ' + reason + ' — no new version created.', '');
     return;
   }
 
