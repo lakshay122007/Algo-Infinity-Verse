@@ -76,6 +76,11 @@
   font-family: Poppins, sans-serif; outline: none; cursor: pointer;
 }
 
+.dp-select:focus-visible {
+  outline: 2px solid `#a855f7`;
+  outline-offset: 2px;
+}
+
 .dp-btn-sm {
   font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 7px;
   border: 1px solid var(--glass-border); background: rgba(255,255,255,0.04);
