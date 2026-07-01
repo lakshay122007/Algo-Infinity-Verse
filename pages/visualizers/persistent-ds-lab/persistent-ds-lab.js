@@ -273,7 +273,7 @@ function pdInspectNode(nodeId, versionIdx) {
     { k: 'Left child', v: node.left !== null ? '#' + node.left + ' (' + pdNodePool[node.left].value + ')' : 'null' },
     { k: 'Right child',v: node.right !== null ? '#' + node.right + ' (' + pdNodePool[node.right].value + ')' : 'null' },
     { k: 'Referenced by', v: refCount + ' version(s)' },
-    { k: 'Created in', v: 'v' + pdVersions.findIndex(function(v){ var n={}; pdCollectNodes(v.root,n); return n[nodeId] && (versionIdx===0||!function(){var pn={}; if(versionIdx>0)pdCollectNodes(pdVersions[versionIdx-1].root,pn); return pn[nodeId];}()); }) },
+    { k: 'Created in', v: 'v' + pdVersions.findIndex(function(v){ var n = {}; pdCollectNodes(v.root, n); return n[nodeId]; }) },
   ].map(function(r) {
     return '<div class="pd-insp-row"><span class="pd-insp-key">' + r.k + '</span><span class="pd-insp-val">' + r.v + '</span></div>';
   }).join('');
