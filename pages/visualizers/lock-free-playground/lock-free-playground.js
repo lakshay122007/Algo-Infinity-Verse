@@ -351,7 +351,7 @@ function lfQueueDequeue(tid) {
   var nextNode = lfGetNode(headNode.next);
   var nextId   = headNode.next;
 
-  if (lfState.hazardOn) thread.hazardPtr = nextId;
+  if (lfState.hazardOn) thread.hazardPtr = headNode.id;
 
   lfState.casAttempts++; thread.casAttempts++;
   // CAS head from current to head.next
