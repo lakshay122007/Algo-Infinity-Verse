@@ -293,5 +293,8 @@
 }
 .lf-aba-ctrl-btn:hover { background: rgba(239,68,68,0.16); }
 
-@media (max-width: 1000px) { .lf-main-layout { grid-template-columns: 1fr 1fr; } .lf-right-col { display: none; } }
+`@media` (max-width: 1000px) {
+  .lf-main-layout { grid-template-columns: 1fr; }
+  .lf-right-col { display: flex; }
+}
 @media (max-width: 680px) { .lf-main-layout { grid-template-columns: 1fr; } .lf-aba-layout { grid-template-columns: 1fr; } }
