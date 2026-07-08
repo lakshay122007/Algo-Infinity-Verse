@@ -88,6 +88,13 @@ function sbSuccinctRank(i) {
   if (i > n) i = n;
   if (i <= 0) return { result: 0, trace: ['i <= 0, rank is trivially 0'] };
 
+  // When i === n, return the total popcount directly
+  if (i === n) {
+    var total = sbPopcount(sbState.bits);
+    trace.push('rank(' + i + ') = total popcount = ' + total);
+    return { result: total, trace: trace, highlightRange: [0, n] };
+  }
+
   var superblockIdx = Math.floor(i / SB_SUPERBLOCK_SIZE);
   var withinSuperblockOffset = i % SB_SUPERBLOCK_SIZE;
   var localBlockIdx = Math.floor(withinSuperblockOffset / SB_BLOCK_SIZE);
