@@ -116,6 +116,9 @@ function sbSuccinctSelect(k) {
   var trace = [];
   if (k <= 0) return { result: null, trace: ['k must be >= 1'] };
 
+  var totalOnes = sbPopcount(sbState.bits);
+  if (k > totalOnes) return { result: null, trace: ['k=' + k + ' exceeds total 1s (' + totalOnes + ')'] };
+
   var superblockIdx = 0;
   for (var s = 0; s < sbState.superblockRank.length; s++) {
     var thisRank = sbState.superblockRank[s];
@@ -123,7 +126,7 @@ function sbSuccinctSelect(k) {
     if (k > thisRank && k <= nextRank) { superblockIdx = s; break; }
     superblockIdx = s;
   }
-  trace.push('binary search over superblock ranks → superblock[' + superblockIdx + '] contains the k-th 1 (cumulative rank before it = ' + sbState.superblockRank[superblockIdx] + ')');
+  trace.push('scan superblock ranks → superblock[' + superblockIdx + '] contains the k-th 1 (cumulative rank before it = ' + sbState.superblockRank[superblockIdx] + ')');
 
   var remainingInSuperblock = k - sbState.superblockRank[superblockIdx];
 
