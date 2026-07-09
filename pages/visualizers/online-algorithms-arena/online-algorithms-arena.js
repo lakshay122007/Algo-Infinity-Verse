@@ -247,7 +247,7 @@ function oaIntervalNext() {
 
   if (st.idx >= st.intervals.length) {
     var opt = oaComputeOfflineOptimal(st.intervals);
-    var ratio = opt.count > 0 ? (opt.count / st.onlineAccepted.length) : 1;
+    var ratio = st.onlineAccepted.length > 0 ? (opt.count / st.onlineAccepted.length) : 1;
     oaSetStatus('oaIntervalStatus', 'All intervals processed. Online accepted ' + st.onlineAccepted.length + ', offline optimal was ' + opt.count + '. Competitive ratio: ' + ratio.toFixed(2) + '×.', accept ? 'bought' : '');
   } else {
     oaSetStatus('oaIntervalStatus', accept ? 'Accepted — this interval is now blocking any overlapping future intervals.' : 'Rejected — it overlapped the currently accepted interval.', '');
