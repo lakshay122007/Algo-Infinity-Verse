@@ -50,8 +50,17 @@ function zbRenderBoard(justChangedSq) {
     var cell = document.createElement('div');
     cell.className = 'zb-square' + (piece === 'X' ? ' piece-x' : piece === 'O' ? ' piece-o' : '') + (sq === justChangedSq ? ' just-changed' : '');
     cell.setAttribute('data-sq', sq);
+    cell.setAttribute('role', 'button');
+    cell.setAttribute('tabindex', '0');
+    cell.setAttribute('aria-label', 'Square ' + sq + ', ' + (piece || 'empty'));
     cell.innerHTML = (piece || '') + '<span class="zb-square-idx">' + sq + '</span>';
     cell.addEventListener('click', function() { zbHandleSquareClick(parseInt(this.getAttribute('data-sq'))); });
+    cell.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        zbHandleSquareClick(parseInt(this.getAttribute('data-sq')));
+      }
+    });
     board.appendChild(cell);
   }
 }
