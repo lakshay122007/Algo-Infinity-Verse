@@ -34,9 +34,9 @@
     <section id="lab" class="section oa-section">
       <div class="container">
 
-        <div class="oa-mode-tabs">
-          <button class="oa-mode-tab active" data-mode="ski"><i class="fas fa-person-skiing"></i> Ski Rental</button>
-          <button class="oa-mode-tab" data-mode="interval"><i class="fas fa-calendar-days"></i> Online Interval Scheduling</button>
+        <div class="oa-mode-tabs" role="tablist">
+          <button class="oa-mode-tab active" role="tab" aria-selected="true" aria-controls="oaPanelSki" data-mode="ski"><i class="fas fa-person-skiing"></i> Ski Rental</button>
+          <button class="oa-mode-tab" role="tab" aria-selected="false" aria-controls="oaPanelInterval" data-mode="interval"><i class="fas fa-calendar-days"></i> Online Interval Scheduling</button>
         </div>
 
         <!-- Ski Rental Panel -->
@@ -44,9 +44,9 @@
 
           <div class="oa-control-card">
             <div class="oa-row">
-              <span class="oa-row-label">Rent cost/day</span>
+              <label class="oa-row-label" for="oaRentCost">Rent cost/day</label>
               <input type="number" id="oaRentCost" class="oa-num-input" min="1" max="20" value="1" />
-              <span class="oa-row-label" style="margin-left:0.75rem">Buy cost</span>
+              <label class="oa-row-label" style="margin-left:0.75rem" for="oaBuyCost">Buy cost</label>
               <input type="number" id="oaBuyCost" class="oa-num-input" min="2" max="100" value="10" />
               <button class="btn oa-btn-primary oa-apply-btn" id="oaSkiApplyBtn"><i class="fas fa-check"></i> Set Costs</button>
             </div>
