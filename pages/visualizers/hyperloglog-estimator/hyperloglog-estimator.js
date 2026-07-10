@@ -167,8 +167,12 @@ function hlSetStatus(msg) {
 function hlUpdateHashTrace(itemStr, result) {
   var el = document.getElementById('hlHashTrace');
   if (!el) return;
-  el.innerHTML = 'item "<strong>' + itemStr + '</strong>" → hash ' + result.hashHex + ' → bucket <strong>[' + result.bucketIdx + ']</strong>, leading-zero-run = <strong>' + result.run + '</strong>' +
-    (result.isNewMax ? ' → new max for this bucket!' : ' (not a new max — bucket already has a longer run)');
+  el.textContent = '';
+  el.appendChild(document.createTextNode('item "'));
+  var strong = document.createElement('strong');
+  strong.textContent = itemStr;
+  el.appendChild(strong);
+  el.appendChild(document.createTextNode('" → hash ' + result.hashHex + ' → bucket [' + result.bucketIdx + '], leading-zero-run = ' + result.run + (result.isNewMax ? ' → new max for this bucket!' : ' (not a new max — bucket already has a longer run)')));
 }
 
 function hlAddOneItem() {
