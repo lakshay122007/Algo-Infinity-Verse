@@ -77,10 +77,15 @@ function hlEstimate() {
 function hlRenderRegisters(justUpdatedIdx) {
   var grid = document.getElementById('hlRegistersGrid');
   if (!grid) return;
-  grid.innerHTML = hlState.registers.map(function(r, i) {
-    var cls = 'hl-register-cell' + (r > 0 ? ' nonzero' : '') + (i === justUpdatedIdx ? ' just-updated' : '');
-    return '<div class="' + cls + '">' + r + '</div>';
-  }).join('');
+  grid.textContent = '';
+  var frag = document.createDocumentFragment();
+  hlState.registers.forEach(function(r, i) {
+    var cell = document.createElement('div');
+    cell.className = 'hl-register-cell' + (r > 0 ? ' nonzero' : '') + (i === justUpdatedIdx ? ' just-updated' : '');
+    cell.textContent = r;
+    frag.appendChild(cell);
+  });
+  grid.appendChild(frag);
 }
 
 function hlRenderStats() {
