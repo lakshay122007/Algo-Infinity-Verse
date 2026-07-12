@@ -329,7 +329,11 @@ function mkVerifyHandler() {
     }
   }
 
-  mkSetStatus(mkState.tampered ? (result.matches ? 'Unexpected: tamper not detected.' : 'Tamper correctly detected via proof mismatch.') : 'Proof verified successfully.', result.matches === !mkState.tampered ? 'good' : (mkState.tampered ? 'good' : 'bad'));
+  var asExpected = result.matches === !mkState.tampered;
+  var statusMsg = mkState.tampered
+    ? (result.matches ? 'Unexpected: tamper not detected.' : 'Tamper correctly detected via proof mismatch.')
+    : (result.matches ? 'Proof verified successfully.' : 'Verification failed unexpectedly.');
+  mkSetStatus(statusMsg, asExpected ? 'good' : 'bad');
 }
 
 function mkResetTamperState() {
