@@ -404,7 +404,8 @@ function spRunSkewedComparison() {
   var hotValues = [6, 43, 87];
   var allValues = [50, 25, 75, 12, 37, 62, 87, 6, 18, 31, 43];
 
-  spState.nodes = {}; spState.root = null; spState.nextId = 1; spState.totalRotations = 0;
+  spState.nodes = {}; spState.root = null; spState.nextId = 1;
+  spState.totalRotations = 0; spState.totalOps = 0; spState.rotationHistory = [];
   allValues.forEach(function(v) { spInsert(v, null); });
 
   var splaySequence = [];
