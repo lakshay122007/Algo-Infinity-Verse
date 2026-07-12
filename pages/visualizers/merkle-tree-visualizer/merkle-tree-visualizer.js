@@ -198,8 +198,18 @@ function mkRenderTree(highlightPath, proofSiblings) {
         dataLabel.textContent = mkState.blocks[i].slice(0, 8);
         g.appendChild(dataLabel);
 
+        g.setAttribute('tabindex', '0');
+        g.setAttribute('role', 'button');
+        g.setAttribute('aria-label', 'Edit data for block #' + i);
+
         g.addEventListener('click', function() {
           mkEditLeaf(parseInt(this.getAttribute('data-leaf')));
+        });
+        g.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            mkEditLeaf(parseInt(this.getAttribute('data-leaf')));
+          }
         });
       }
 
