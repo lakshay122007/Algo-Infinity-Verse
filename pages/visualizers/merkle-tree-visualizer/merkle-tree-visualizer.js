@@ -140,10 +140,9 @@ function mkRenderTree(highlightPath, proofSiblings) {
   var proofSet = {};
   (proofSiblings || []).forEach(function(p) { proofSet[p.level + '-' + p.siblingIdx] = true; });
 
-  for (var lvl = 0; lvl < levels.length - 1; lvl++) {
+  for (let lvl = 0; lvl < levels.length - 1; lvl++) {
     var count = levels[lvl].length;
-    for (var i = 0; i < count; i++) {
-      var pairStart = i % 2 === 0 ? i : i - 1;
+    for (let i = 0; i < count; i++) {
       var parentIdx = Math.floor(i / 2);
       var childPos = positions[lvl][i];
       var parentPos = positions[lvl + 1][parentIdx];
@@ -155,9 +154,9 @@ function mkRenderTree(highlightPath, proofSiblings) {
     }
   }
 
-  for (var lvl = 0; lvl < levels.length; lvl++) {
+  for (let lvl = 0; lvl < levels.length; lvl++) {
     var levelHashes = levels[lvl];
-    for (var i = 0; i < levelHashes.length; i++) {
+    for (let i = 0; i < levelHashes.length; i++) {
       var pos = positions[lvl][i];
       var key = lvl + '-' + i;
       var isChanged = highlightSet[key];
