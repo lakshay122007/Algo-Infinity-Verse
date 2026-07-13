@@ -205,6 +205,7 @@ function ckInsertHandler() {
 }
 
 function ckLookupHandler() {
+  if (ckState.animating) return;
   var input = document.getElementById('ckKeyInput');
   var key = (input ? input.value : '').trim();
   if (!key) { ckSetStatus('Enter a key to look up.', ''); return; }
