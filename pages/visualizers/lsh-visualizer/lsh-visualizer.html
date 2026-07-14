@@ -49,19 +49,19 @@
       <div class="lsh-control-card">
 
         <div class="lsh-row">
-          <span class="lsh-row-label">Hash functions (k):</span>
-          <input type="range" id="lshKSlider" min="4" max="20" step="2" value="8" class="lsh-slider" />
+          <label class="lsh-row-label" for="lshKSlider">Hash functions (k):</label>
+          <input type="range" id="lshKSlider" min="4" max="20" step="2" value="8" class="lsh-slider" aria-valuetext="8 hash functions" />
           <span class="lsh-slider-val" id="lshKVal">8</span>
         </div>
 
         <div class="lsh-row">
-          <span class="lsh-row-label">Bands (b):</span>
+          <label class="lsh-row-label" for="lshBSlider">Bands (b):</label>
           <input type="range" id="lshBSlider" min="2" max="8" step="1" value="4" class="lsh-slider" />
           <span class="lsh-slider-val" id="lshBVal">4 bands × 2 rows</span>
         </div>
 
         <div class="lsh-row">
-          <span class="lsh-row-label">Add document:</span>
+          <label class="lsh-row-label" for="lshDocInput">Add document:</label>
           <input type="text" id="lshDocInput" class="lsh-text-input" placeholder="Type a short sentence…" maxlength="120" />
           <button class="btn lsh-btn-primary lsh-action-btn" id="lshAddBtn">
             <i class="fas fa-plus"></i> Add
