@@ -567,6 +567,8 @@ function ivtInit() {
   var loEl       = document.getElementById('ivtInsertLo');
   var hiEl       = document.getElementById('ivtInsertHi');
   var labelEl    = document.getElementById('ivtInsertLabel');
+  var qLoEl      = document.getElementById('ivtQueryLo');
+  var qHiEl      = document.getElementById('ivtQueryHi');
 
   if (insertBtn) insertBtn.addEventListener('click', ivtDoInsert);
   if (queryBtn)  queryBtn.addEventListener('click',  ivtDoQuery);
@@ -578,7 +580,9 @@ function ivtInit() {
   if (loEl)    loEl.addEventListener('keydown',    onEnterInsert);
   if (hiEl)    hiEl.addEventListener('keydown',    onEnterInsert);
   if (labelEl) labelEl.addEventListener('keydown', onEnterInsert);
-
+  function onEnterQuery(e) { if (e.key === 'Enter') ivtDoQuery(); }
+  if (qLoEl) qLoEl.addEventListener('keydown', onEnterQuery);
+  if (qHiEl) qHiEl.addEventListener('keydown', onEnterQuery);
   window.addEventListener('resize', function () {
     ivtDrawTimeline();
     ivtRender();
