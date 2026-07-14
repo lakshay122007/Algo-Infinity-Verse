@@ -230,13 +230,13 @@ function ivtDrawTimeline() {
   var parent = canvas.parentElement;
   var W = parent ? parent.clientWidth - 20 : 260;
   canvas.width  = Math.max(W, 200);
-  canvas.height = 200;
+  canvas.height = Math.max(200, 18 + ivtIntervals.length * 20 + 50);
 
   var ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (!ivtIntervals.length) {
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '`#64748b`';
     ctx.font = '12px Poppins,sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('No intervals inserted.', canvas.width / 2, canvas.height / 2);
@@ -285,7 +285,7 @@ function ivtDrawTimeline() {
 
     var found = ivtQueryState && ivtQueryState.found.some(function (f) { return f.lo === iv.lo && f.hi === iv.hi; });
     ctx.fillStyle = found ? 'rgba(34,197,94,0.7)' : 'rgba(168,85,247,0.45)';
-    ctx.strokeStyle = found ? '#22c55e' : 'rgba(168,85,247,0.7)';
+    ctx.strokeStyle = found ? '`#22c55e`' : 'rgba(168,85,247,0.7)';
     ctx.lineWidth = 1.5;
 
     var rad = 4;
@@ -303,7 +303,7 @@ function ivtDrawTimeline() {
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = '`#fff`';
     ctx.font = '9px Fira Code,monospace';
     ctx.textAlign = 'left';
     var lbl = '[' + iv.lo + ',' + iv.hi + ']' + (iv.label ? ' ' + iv.label : '');
@@ -317,20 +317,19 @@ function ivtDrawTimeline() {
     var qy  = canvas.height - 42;
 
     ctx.fillStyle = 'rgba(245,158,11,0.2)';
-    ctx.strokeStyle = '#f59e0b';
+    ctx.strokeStyle = '`#f59e0b`';
     ctx.lineWidth = 2;
     ctx.setLineDash([4, 3]);
     ctx.strokeRect(qx1, qy, qw, barH);
     ctx.fillRect(qx1, qy, qw, barH);
     ctx.setLineDash([]);
 
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = '`#f59e0b`';
     ctx.font = '9px Poppins,sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText('Query [' + ivtQueryState.lo + ',' + ivtQueryState.hi + ']', qx1, qy + barH - 3);
   }
 }
-
 /* ── Stats panel ── */
 function ivtUpdateStats() {
   var total   = document.getElementById('ivtStatTotal');
