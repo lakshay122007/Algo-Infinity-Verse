@@ -281,6 +281,13 @@ const visualizers = [
     icon: 'fa-link',
     desc: 'Visualize Disjoint Set Union with path compression and union by rank.',
   },
+  {
+    name: 'Graph Coloring Visualizer',
+    path: '/pages/visualizers/graph-coloring-visualizer/graph-coloring-visualizer.html',
+    category: 'Graph Algorithms',
+    icon: 'fa-palette',
+    desc: 'Greedy vs backtracking coloring — exam scheduling, register allocation, and map coloring.',
+  },
 
   // ── Dynamic Programming ──
   {
