@@ -346,10 +346,10 @@
 }
 
 .bmv-counter-val {
-  font-family: "Orbitron", sans-serif;
+  font-family: Orbitron, sans-serif;
   font-size: 1.6rem;
   font-weight: 900;
-  color: #a855f7;
+  color: `#a855f7`;
   line-height: 1;
 }
 
