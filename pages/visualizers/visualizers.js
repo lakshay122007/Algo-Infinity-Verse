@@ -295,6 +295,13 @@ const visualizers = [
   icon: 'fa-vote-yea',
   desc: 'Find the majority element in one pass with O(1) space — step through candidate replacement, verification, and the n/3 extension.',
   },
+  {
+  name: 'Circuit Breaker Visualizer',
+  path: '/pages/visualizers/circuit-breaker/circuit-breaker.html',
+  category: 'System Design',
+  icon: 'fa-bolt',
+  desc: 'Netflix resilience pattern — watch CLOSED, OPEN, HALF-OPEN state transitions, cooldown timers, and see wasted cost without a breaker.',
+  },
 
   // ── Dynamic Programming ──
   {
