@@ -288,6 +288,13 @@ const visualizers = [
     icon: 'fa-palette',
     desc: 'Greedy vs backtracking coloring — exam scheduling, register allocation, and map coloring.',
   },
+  {
+  name: 'Boyer-Moore Voting Visualizer',
+  path: '/pages/visualizers/boyer-moore-voting/boyer-moore-voting.html',
+  category: 'Algorithms',
+  icon: 'fa-vote-yea',
+  desc: 'Find the majority element in one pass with O(1) space — step through candidate replacement, verification, and the n/3 extension.',
+  },
 
   // ── Dynamic Programming ──
   {
