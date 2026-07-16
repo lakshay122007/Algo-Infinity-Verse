@@ -96,8 +96,8 @@
 }
 
 .bmv-text-input:focus-visible {
-  border-color: `#f59e0b`;
-  outline: 2px solid `#f59e0b`;
+  border-color: #f59e0b;
+  outline: 2px solid #f59e0b;
   outline-offset: 2px;
 }
 
@@ -349,7 +349,7 @@
   font-family: Orbitron, sans-serif;
   font-size: 1.6rem;
   font-weight: 900;
-  color: `#a855f7`;
+  color: #a855f7;
   line-height: 1;
 }
 
