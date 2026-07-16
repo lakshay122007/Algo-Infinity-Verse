@@ -84,11 +84,12 @@ function bmvBuildStepsN2(seq) {
     if (seq[k] === finalCandidate) trueCount++;
   }
 
+  var runningVerifyCount = 0;
   for (var v = 0; v < seq.length; v++) {
     var isMatch = seq[v] === finalCandidate;
+    if (isMatch) runningVerifyCount++;
     var vStates = seq.map(function (_, j) {
-      if (j < v)  return isMatch ? 'verify-match' : 'verify-other';
-      if (j === v) return seq[v] === finalCandidate ? 'verify-match' : 'verify-other';
+      if (j <= v) return seq[j] === finalCandidate ? 'verify-match' : 'verify-other';
       return 'idle';
     });
 
@@ -98,7 +99,7 @@ function bmvBuildStepsN2(seq) {
       candidate:    finalCandidate,
       counter:      counter,
       event:        'verify',
-      verifyCount:  v + (seq[v] === finalCandidate ? 1 : 0),
+      verifyCount:  runningVerifyCount,
       verifyOf:     seq.length,
       verifyFinal:  trueCount,
       msg:          'Verify [' + (v + 1) + '/' + seq.length + ']: "' + seq[v] + '" — count so far = ' + (seq.slice(0, v + 1).filter(function (x) { return x === finalCandidate; }).length) + '.',
