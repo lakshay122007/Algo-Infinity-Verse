@@ -420,7 +420,7 @@ function bmvRenderFrequency() {
   var area = document.getElementById('bmvFreqArea');
   if (!area || !bmvSequence.length) return;
 
-  var freq = {};
+  var freq = Object.create(null);
   bmvSequence.forEach(function (el) { freq[el] = (freq[el] || 0) + 1; });
 
   var n      = bmvSequence.length;
