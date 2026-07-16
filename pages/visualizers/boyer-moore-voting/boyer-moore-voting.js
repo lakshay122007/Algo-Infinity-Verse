@@ -121,6 +121,7 @@ function bmvBuildStepsN2(seq) {
     event:       'final',
     isMajority:  isMaj,
     trueCount:   trueCount,
+    verifyLines: [{ cand: finalCandidate, count: trueCount, pass: isMaj }],
     msg:         verdict,
     logType:     isMaj ? 'match' : 'miss',
     tokenStates: new Array(seq.length).fill(isMaj ? 'verify-match' : 'done')
