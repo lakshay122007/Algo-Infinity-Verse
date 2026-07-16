@@ -95,7 +95,11 @@
   transition: border-color 0.2s ease;
 }
 
-.bmv-text-input:focus { border-color: #f59e0b; }
+.bmv-text-input:focus-visible {
+  border-color: `#f59e0b`;
+  outline: 2px solid `#f59e0b`;
+  outline-offset: 2px;
+}
 
 .bmv-action-btn {
   font-size: 0.82rem;
