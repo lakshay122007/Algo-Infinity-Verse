@@ -333,6 +333,13 @@ const visualizers = [
     icon: 'fa-bolt',
     desc: 'Netflix resilience pattern — watch CLOSED, OPEN, HALF-OPEN state transitions, cooldown timers, and see wasted cost without a breaker.',
   },
+    {
+    name: 'Bully Algorithm Visualizer',
+    path: '/pages/visualizers/bully-algorithm-visualizer/bully-algorithm-visualizer.html',
+    category: 'Distributed Systems',
+    icon: 'fa-crown',
+    desc: 'Leader election where the highest surviving ID always wins — concurrent failures, network partitions, and split-brain.',
+  },
 
   // ── Dynamic Programming ──
   {
