@@ -34,7 +34,12 @@
 .st-text-input {
   background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border);
   border-radius: 9px; color: var(--text-primary); padding: 0.4rem 0.8rem;
-  font-family: Fira Code, monospace; font-size: 0.84rem; outline: none; min-width: 130px;
+  font-family: "Fira Code", monospace; font-size: 0.84rem; min-width: 130px;
+}
+
+.st-text-input:focus-visible {
+  outline: 2px solid `#06b6d4`;
+  outline-offset: 2px;
 }
 
 .st-preset-btns { display: flex; gap: 0.35rem; flex-wrap: wrap; }
