@@ -131,6 +131,7 @@ function amRunVerification() {
   var expected = amState.weights.map(function(w) { return w / totalWeight; });
   var empirical = counts.map(function(c) { return c / trials; });
 
+  amState.verifyHistory = [expected, empirical];
   amDrawVerifyChart(expected, empirical);
   amSetStatus('Ran ' + trials.toLocaleString() + ' samples. Empirical frequencies closely match the input weight distribution.', 'good');
 }
