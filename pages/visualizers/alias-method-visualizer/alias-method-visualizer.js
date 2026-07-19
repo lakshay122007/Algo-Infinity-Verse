@@ -48,7 +48,7 @@ function amRenderItems() {
     var color = AM_COLORS[i % AM_COLORS.length];
     return '<div class="am-item-slider" style="color:' + color + '">' +
       '<span class="am-item-label">' + AM_ITEMS[i] + '</span>' +
-      '<input type="range" class="am-item-range" data-idx="' + i + '" min="1" max="50" value="' + w + '" />' +
+      '<input type="range" class="am-item-range" aria-label="Weight for ' + AM_ITEMS[i] + '" data-idx="' + i + '" min="1" max="50" value="' + w + '" />' +
       '<span class="am-item-weight" id="amWeight' + i + '">weight ' + w + '</span>' +
     '</div>';
   }).join('');
