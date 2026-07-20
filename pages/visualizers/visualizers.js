@@ -1011,6 +1011,13 @@ const visualizers = [
   icon: 'fa-calendar-check',
   desc: 'DP + binary search for maximum-profit job scheduling — sort by end time, compute p(j), fill OPT table cell-by-cell, trace back optimal jobs, and compare against greedy.',
   },
+  {
+    name: 'Reed-Solomon Erasure Coding Visualizer',
+    path: '/pages/visualizers/reed-solomon-visualizer/reed-solomon-visualizer.html',
+    category: 'Systems & OS',
+    icon: 'fa-compact-disc',
+    desc: 'How RAID 6 and QR codes survive missing data — points on a polynomial curve, live disk failures.',
+  },
 
   // ── Special & Creative ──
   {
