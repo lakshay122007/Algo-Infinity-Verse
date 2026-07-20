@@ -255,7 +255,7 @@ function wisDrawTimeline(selectedSet, activeJob) {
     var x2 = toX(job.end);
     var bw = Math.max(x2 - x1, 2);
     var y  = 20 + i * rowH;
-    var h  = Math.max(rowH - 2, 6);
+    var h  = Math.max(6, Math.min(rowH - 2, Math.round((job.profit / maxProfit) * barMaxH)));
 
     var col = wisColor(job.origIdx);
     var isActive   = activeJob === (i + 1);
