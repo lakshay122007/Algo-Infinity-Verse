@@ -984,6 +984,13 @@ const visualizers = [
     desc: 'Guaranteed O(1) worst-case lookup via two tables and eviction chains.',
   },
   {
+  name: 'Cuckoo Filter Visualizer',
+  path: '/pages/visualizers/cuckoo-filter/cuckoo-filter.html',
+  category: 'Data Structures',
+  icon: 'fa-filter',
+  desc: 'Bloom Filters that can delete — fingerprint XOR dual-bucket scheme, cuckoo eviction chains, false positive demo, and Bloom vs Cuckoo space comparison.',
+  },
+  {
     name: 'LSH Visualizer',
     path: '/pages/visualizers/lsh-visualizer/lsh-visualizer.html',
     category: 'Algorithms',
