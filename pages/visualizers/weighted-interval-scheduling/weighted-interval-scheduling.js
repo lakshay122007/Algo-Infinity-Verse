@@ -611,6 +611,7 @@ function wisAddJob() {
   if (isNaN(s) || isNaN(e) || isNaN(p)) { wisSetStatus('Please enter valid numbers for start, end, and profit.', 'fail'); return; }
   if (s >= e) { wisSetStatus('End time must be greater than start time.', 'fail'); return; }
   if (p <= 0) { wisSetStatus('Profit must be positive.', 'fail'); return; }
+  if (s < 0 || e > 99 || p > 999) { wisSetStatus('Start/End must be within 0-99 and Profit within 1-999.', 'fail'); return; }
   if (wisJobs.length >= 12) { wisSetStatus('Maximum 12 jobs. Reset to start over.', 'warn'); return; }
 
   wisJobs.push({ start: s, end: e, profit: p });
