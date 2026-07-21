@@ -458,6 +458,12 @@ function ckfUpdateStats() {
 }
 
 
+function ckfEsc(str) {
+  var d = document.createElement('div');
+  d.textContent = String(str);
+  return d.innerHTML;
+}
+
 function ckfRenderFpDetail(detail) {
   var el = document.getElementById('ckfFpDetail');
   if (!el) return;
@@ -466,7 +472,7 @@ function ckfRenderFpDetail(detail) {
   var deletedTxt = detail.deletedFrom !== null ? detail.deletedFrom : '—';
 
   var rows = [
-    { k: 'Item',        v: '"' + detail.item + '"',  cls: '' },
+    { k: 'Item',        v: '"' + ckfEsc(detail.item) + '"',  cls: '' },
     { k: 'Fingerprint', v: detail.fpHex + ' (' + ckfFpBits + '-bit)', cls: '' },
     { k: 'Bucket 1 (h₁)',   v: 'B' + detail.b1,  cls: 'bucket1' },
     { k: 'Bucket 2 (h₁⊕h(fp))', v: 'B' + detail.b2, cls: 'bucket2' }
@@ -486,7 +492,7 @@ function ckfRenderFpDetail(detail) {
   }).join('');
 
   if (detail.isFP) {
-    html += '<div class="ckf-fp-note">⚠️ False positive! The fingerprint of "' + detail.item + '" collided with a stored fingerprint in B' + detail.foundIn + '. The item was never inserted, but the filter says it might be present.</div>';
+    html += '<div class="ckf-fp-note">⚠️ False positive! The fingerprint of "' + ckfEsc(detail.item) + '" collided with a stored fingerprint in B' + detail.foundIn + '. The item was never inserted, but the filter says it might be present.</div>';
   } else if (detail.deletedFrom !== null) {
     html += '<div class="ckf-fp-note">✅ Unlike a Bloom Filter, the Cuckoo Filter can delete this fingerprint directly — no rebuild needed, no risk of false negatives for other items.</div>';
   }
