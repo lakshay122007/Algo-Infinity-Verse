@@ -19,9 +19,6 @@ var klmEstimates  = [];
 var klmVariances  = [];
 var klmGains      = [];
 
-var klmMainCtx  = null;
-var klmBellCtx  = null;
-var klmGainCtx  = null;
 
 function klmGenerateTrue(n, type) {
   var vals = [];
