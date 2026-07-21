@@ -1039,6 +1039,13 @@ const visualizers = [
     icon: 'fa-compact-disc',
     desc: 'How RAID 6 and QR codes survive missing data — points on a polynomial curve, live disk failures.',
   },
+  {
+  name: 'Kalman Filter Visualizer',
+  path: '/pages/visualizers/kalman-filter/kalman-filter.html',
+  category: 'Algorithms',
+  icon: 'fa-chart-line',
+  desc: 'GPS and robotics state estimation — watch predict/update steps, Kalman gain, Gaussian belief narrowing, and sensor noise vs estimation accuracy live.',
+  },
 
   // ── Special & Creative ──
   {
