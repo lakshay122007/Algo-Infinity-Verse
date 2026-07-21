@@ -67,8 +67,9 @@ function fcSearch(cascaded, x, log) {
 
   results.push(fcSuccessorInOriginal(cascaded[0], pos));
 
-  var idx = pos < cascaded[0].length ? pos : cascaded[0].length - 1;
-  var curBridge = cascaded[0][idx] ? cascaded[0][idx].bridge : 0;
+  var curBridge = pos < cascaded[0].length
+    ? cascaded[0][pos].bridge
+    : (cascaded[1] ? cascaded[1].length : 0);
 
   for (var i = 1; i < cascaded.length; i++) {
     var lvl = cascaded[i];
