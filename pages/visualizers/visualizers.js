@@ -1026,6 +1026,13 @@ const visualizers = [
     desc: "O(1) weighted random sampling via Vose's Alias Method — loot tables, load balancers, ML sampling.",
   },
   {
+    name: 'Fractional Cascading Visualizer',
+    path: '/pages/visualizers/fractional-cascading-visualizer/fractional-cascading-visualizer.html',
+    category: 'Data Structures',
+    icon: 'fa-diagram-project',
+    desc: 'Search K sorted lists with one binary search plus O(1) bridge-hops per list.',
+  },
+  {
     name: 'Weighted Interval Scheduling',
     path: '/pages/visualizers/weighted-interval-scheduling/weighted-interval-scheduling.html',
     category: 'Algorithms',
