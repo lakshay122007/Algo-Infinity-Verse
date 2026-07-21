@@ -100,10 +100,10 @@
               <i class="fas fa-wave-square"></i>
               Trajectory
             </div>
-            <div class="klm-seg" id="klmTrajSeg">
-              <button class="klm-seg-btn active" data-traj="sine">Sine Wave</button>
-              <button class="klm-seg-btn" data-traj="linear">Linear</button>
-              <button class="klm-seg-btn" data-traj="step">Step</button>
+            <div class="klm-seg" id="klmTrajSeg" role="group" aria-label="Trajectory type">
+              <button type="button" class="klm-seg-btn active" data-traj="sine" aria-pressed="true">Sine Wave</button>
+              <button type="button" class="klm-seg-btn" data-traj="linear" aria-pressed="false">Linear</button>
+              <button type="button" class="klm-seg-btn" data-traj="step" aria-pressed="false">Step</button>
             </div>
           </div>
 
