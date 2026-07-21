@@ -615,7 +615,7 @@ function ckfFpDemo() {
     var r = ckfLookup(candidates[i]);
     if (r.found) {
       found++;
-      ckfSetStatus('🚨 False positive! "' + candidates[i] + '" was never inserted, but the filter says it might be present. Fingerprint 0x' + r.detail.fpHex + ' collided.', 'warn');
+      ckfSetStatus('🚨 False positive! "' + candidates[i] + '" was never inserted, but the filter says it might be present. Fingerprint ' + r.detail.fpHex + ' collided.', 'warn');
       ckfAddLog('FALSE POSITIVE: "' + candidates[i] + '" found in B' + r.detail.foundIn, 'fp');
       return;
     }
