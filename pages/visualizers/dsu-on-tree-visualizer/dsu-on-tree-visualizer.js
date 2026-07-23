@@ -301,7 +301,7 @@ function dtStepHandler() {
   dtRenderTree(s.node);
 
   if (s.type === 'result' && dtState.dtLogIdx < dtState.dtLogs.length) {
-    while (dtState.dtLogIdx < dtState.dtLogs.length && dtState.dtLogs[dtState.dtLogIdx].node !== undefined && dtState.dtLogs[dtState.dtLogIdx].type !== 'done') {
+    while (dtState.dtLogIdx < dtState.dtLogs.length && dtState.dtLogs[dtState.dtLogIdx].type !== 'done') {
       dtAddLog(dtState.dtLogs[dtState.dtLogIdx].msg, dtState.dtLogs[dtState.dtLogIdx].type);
       dtState.dtLogIdx++;
     }
