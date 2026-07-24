@@ -558,7 +558,12 @@ document.getElementById('btnQueryLCA').addEventListener('click', async () => {
 });
 
 document.getElementById('btnReset').addEventListener('click', () => {
+    if (abortController) {
+        abortController.abort();
+        abortController = null;
+    }
     resetUI();
+    enableBtn('btnGenTree', true);
     if(nodesCount > 0) enableBtn('btnEulerTour', true);
     updateStatus('Reset complete. Build Euler tour to start again.', 'normal');
 });
