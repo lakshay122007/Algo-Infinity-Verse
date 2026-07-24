@@ -374,12 +374,12 @@ function dpSolveCHT(items) {
 
   addLineToHull({ m: -2 * prefix[0], b: OPT[0] + prefix[0] * prefix[0] });
 
-  for (var i = 1; i <= n; i++) {
-    var x = prefix[i];
-    var best = Infinity;
-    hullLines.forEach(function(l) { ops++; var v = chtEvalLine(l, x); if (v < best) best = v; });
-    OPT[i] = best + prefix[i] * prefix[i] + 5;
-    addLineToHull({ m: -2 * prefix[i], b: OPT[i] + prefix[i] * prefix[i] });
+  for (var j = 1; j <= n; j++) {
+    var x = prefix[j];
+    var q = chtQueryBinary(hullLines, x);
+    ops += q.steps;
+    OPT[j] = q.value + prefix[j] * prefix[j] + 5;
+    addLineToHull({ m: -2 * prefix[j], b: OPT[j] + prefix[j] * prefix[j] });
   }
 
   return { OPT: OPT, ops: ops };
