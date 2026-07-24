@@ -303,10 +303,11 @@ function lcRandomLinesHandler() {
 function lcQueryHandler() {
   if (lcState.lines.length === 0) { lcSetStatus('Insert lines first.', ''); return; }
   var xInput = document.getElementById('lcQueryInput');
-  var x = parseFloat(xInput.value);
-  if (isNaN(x)) { lcSetStatus('Enter a valid query x.', ''); return; }
+  var xRaw = parseFloat(xInput.value);
+  if (isNaN(xRaw)) { lcSetStatus('Enter a valid query x.', ''); return; }
+  var x = Math.round(xRaw);
 
-  var result = lcQuery(1, -lcState.size, lcState.size, Math.round(x));
+  var result = lcQuery(1, -lcState.size, lcState.size, x);
   var bruteMin = Math.min.apply(null, lcState.lines.map(function(l) { return chtEvalLine(l, x); }));
 
   lcRenderPlane(x);
