@@ -48,7 +48,7 @@ function generateGraph(preset) {
         // L to R (cross edges of capacity 1)
         for(let i=1; i<=4; i++) {
             for(let j=5; j<=8; j++) {
-                edges.push({u: i, v: j, cap: 2});
+                edges.push({u: i, v: j, cap: 1});
             }
         }
     } else if (preset === 'dense') {
