@@ -34,7 +34,7 @@
 
         <div class="mfr-control-card">
           <div class="mfr-row">
-            <span class="mfr-row-label">Graph Preset</span>
+            <label class="mfr-row-label" for="presetSelect">Graph Preset</label>
             <select id="presetSelect" class="mfr-select">
                 <option value="adversarial">Adversarial Bipartite (EK Trap)</option>
                 <option value="classic">Classic 6-Node</option>
@@ -44,8 +44,8 @@
             <button class="btn btn-secondary mfr-btn" id="btnRace"><i class="fas fa-flag-checkered"></i> Start Race</button>
             <button class="btn btn-secondary mfr-btn" id="btnReset"><i class="fas fa-undo"></i> Reset</button>
             
-            <span class="mfr-row-label" style="margin-left:auto">Speed</span>
-            <input type="range" id="speedRange" min="10" max="1500" value="300" style="width:120px;" />
+            <label class="mfr-row-label" style="margin-left:auto" for="speedRange">Speed</label>
+            <input type="range" id="speedRange" min="10" max="1500" value="300" style="width:120px;" aria-describedby="speedLabel" />
             <span class="mfr-row-label" id="speedLabel" style="text-transform:none; font-family: Fira Code, monospace;">300ms</span>
           </div>
         </div>
