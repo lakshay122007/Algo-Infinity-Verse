@@ -126,6 +126,8 @@ function processRandomizedInsert(val, forceUnlucky) {
 
 // Stepping logic
 function resetState() {
+    if (isPlaying) togglePlay();
+
     let rawStr = document.getElementById('insertSeq').value;
     insertQueue = rawStr.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
     currentStep = 0;
