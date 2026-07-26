@@ -85,10 +85,14 @@ function buildCHRing(vNodesPerServer) {
 function getCHOwner(keyId, ring) {
     if(ring.length === 0) return null;
     let h = simpleHash(keyId);
-    for(let i=0; i<ring.length; i++) {
-        if(ring[i].hash >= h) return ring[i].server;
+    let low = 0;
+    let high = ring.length;
+    while (low < high) {
+        const mid = low + Math.floor((high - low) / 2);
+        if (ring[mid].hash < h) low = mid + 1;
+        else high = mid;
     }
-    return ring[0].server;
+    return ring[low % ring.length].server;
 }
 
 // --- RECOMPUTATION ---
