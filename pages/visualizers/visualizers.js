@@ -647,6 +647,13 @@ const visualizers = [
 
   // ── Distributed Systems ──
   {
+    name: 'Gossip-Based Failure Detection (SWIM Protocol)',
+    path: '/pages/visualizers/swim-protocol-visualizer/swim-protocol-visualizer.html',
+    category: 'Distributed Systems',
+    icon: 'fa-satellite-dish',
+    desc: 'Detect dead nodes efficiently without a central coordinator.',
+  },
+  {
     name: 'Raft Simulator',
     path: '/pages/ai-features/raft-simulator/raft-simulator.html',
     category: 'Distributed Systems',
