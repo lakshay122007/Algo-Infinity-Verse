@@ -131,6 +131,13 @@ const visualizers = [
     desc: 'Compare leftmost, rightmost, and insert-position binary search side-by-side with lo/hi/mid and mid±1 rules.',
   },
   {
+  name: "Diffie Hellman Key Exchange Visualizer",
+  path: "/pages/visualizers/diffie-hellman-key-exchange/diffie-hellman-visualizer.html",
+  category: "Security & Crypto",
+  icon: "fa-key",
+  desc: "Interactive visualization of the Diffie Hellman key exchange protocol."
+},
+  {
     name: 'Fast/Slow Pointer Simulator',
     path: '/pages/visualizers/fast-slow-pointer-simulator/fast-slow-pointer-simulator.html',
     category: 'Sorting & Searching',
@@ -652,6 +659,11 @@ const visualizers = [
     category: 'Distributed Systems',
     icon: 'fa-satellite-dish',
     desc: 'Detect dead nodes efficiently without a central coordinator.',
+    name: 'Rendezvous Hashing (HRW)',
+    path: '/pages/visualizers/rendezvous-hashing-visualizer/rendezvous-hashing-visualizer.html',
+    category: 'Distributed Systems',
+    icon: 'fa-network-wired',
+    desc: 'Load balance perfectly without using any Consistent Hash Rings.',
   },
   {
     name: 'Raft Simulator',
@@ -948,6 +960,13 @@ const visualizers = [
   },
 
   // ── Data Structures ──
+  {
+    name: 'Deterministic vs Randomized Skip List',
+    path: '/pages/visualizers/deterministic-skip-list-visualizer/deterministic-skip-list-visualizer.html',
+    category: 'Data Structures',
+    icon: 'fa-layer-group',
+    desc: 'See how structural invariants eliminate the need for coin flips.',
+  },
   {
     name: 'Linked List Visualizer',
     path: '/pages/visualizers/linked-list-visualizer/linked-list-visualizer.html',

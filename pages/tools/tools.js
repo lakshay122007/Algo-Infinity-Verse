@@ -26,6 +26,7 @@ const practiceTools = [
   { name: "Keyboard Shortcut Trainer", path: "/pages/tools/editor-shortcut-trainer/editor-shortcut-trainer.html", category: "Practice Aids", icon: "fa-keyboard", desc: "Practice code-editor shortcuts (run, format, comment, undo) in a score-and-streak trainer game." },
 
   // ── Learning Tools ──
+  { name: "Complexity Memory Game", path: "/pages/tools/complexity-memory-game/complexity-memory-game.html", category: "Learning Tools", icon: "fa-layer-group", desc: "Flip cards to match algorithm names with their Big-O complexities in this educational memory game." },
   { name: "Spaced Repetition Queue", path: "/pages/tools/spaced-repetition/review-queue.html", category: "Learning Tools", icon: "fa-rotate", desc: "Optimized review queue using SM-2 spaced repetition to maximize long-term retention." },
   { name: "DSA Focus Pomodoro", path: "/pages/tools/dsa-focus-timer/dsa-focus-timer.html", category: "Learning Tools", icon: "fa-clock", desc: "Topic-linked 25/5 pomodoro with DSA tags, localStorage session history, and study analytics." },
   { name: "AI Memory Scanner", path: "/pages/tools/memory-scanner/memory-scanner.html", category: "Learning Tools", icon: "fa-magnifying-glass", desc: "Scan your memory gaps and get personalized recommendations for topics to revisit." },
@@ -41,6 +42,7 @@ const practiceTools = [
   { name: "Solution Evolution", path: "/pages/tools/solution-evolution/solution-evolution.html", category: "Debugging", icon: "fa-code-branch", desc: "Visualize how brute-force solutions evolve into optimized ones through iterative refinement." },
   { name: "Algorithm Crime Lab", path: "/pages/tools/investigation-lab/investigation-lab.html", category: "Debugging", icon: "fa-flask", desc: "Investigate algorithmic failures and bugs in a forensic-style debugging environment." },
   { name: "DSA Detective Mode", path: "/pages/tools/dsa-detective/dsa-detective.html", category: "Debugging", icon: "fa-gun", desc: "Guess the correct algorithm from clues in a detective-style interactive challenge." },
+  { name: "DSA Crossword Puzzle", path: "/pages/tools/dsa-crossword/dsa-crossword.html", category: "Learning Tools", icon: "fa-puzzle-piece", desc: "Test DSA vocabulary with interactive crossword puzzles. Three difficulty levels with timers, reveals, and best score tracking." },
   { name: "Fix the Bug", path: "/pages/tools/fix-the-bug/fix-the-bug.html", category: "Debugging", icon: "fa-bug", desc: "Find and fix bugs in 50+ broken code snippets across JS, Python, Java, and C++ with XP rewards, streak tracking, and detailed explanations." },
 
   // ── Dashboards ──
