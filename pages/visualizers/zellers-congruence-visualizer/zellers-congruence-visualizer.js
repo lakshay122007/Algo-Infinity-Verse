@@ -179,9 +179,7 @@ function runComputation() {
   U('statDoomsday').innerText = '?';
 
   let jsD = new Date(date.y, date.m - 1, date.d);
-  let jsDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][
-    jsD.getDay()
-  ];
+  let jsDay = DOOM_DAYS[jsD.getDay()];
   U('statJS').innerText = jsDay;
 
   clearPanel('zellerSteps');
