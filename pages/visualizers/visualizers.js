@@ -926,7 +926,7 @@ const visualizers = [
   {
     name: 'Simulated Annealing Schedules',
     path: '/pages/visualizers/simulated-annealing-visualizer/simulated-annealing-visualizer.html',
-    category: 'AI & Machine Learning',
+    category: 'AI & ML',
     icon: 'fa-temperature-empty',
     desc: 'Deep-dive into cooling schedules for SA: Linear, Exponential, Logarithmic, and Adaptive optimization races.',
   },
