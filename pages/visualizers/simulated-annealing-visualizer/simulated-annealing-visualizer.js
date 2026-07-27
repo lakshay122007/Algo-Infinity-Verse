@@ -58,7 +58,7 @@ function genPoints(){
     let scenario = U('selScenario').value;
     points=[];
     if(scenario === 'standard'){
-        for(let i=0;i<40;i++) points.push({x:0.05+Math.random()*0.9, y:0.05+Math.random()*0.9});
+        for(let i=0;i<50;i++) points.push({x:0.05+Math.random()*0.9, y:0.05+Math.random()*0.9});
     }else{
         for(let i=0;i<20;i++) points.push({x:0.1+Math.random()*0.3, y:0.1+Math.random()*0.8});
         for(let i=0;i<20;i++) points.push({x:0.6+Math.random()*0.3, y:0.1+Math.random()*0.8});
