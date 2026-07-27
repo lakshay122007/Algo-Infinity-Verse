@@ -39,18 +39,18 @@
         <div class="bwt-control-card">
           <div class="bwt-toolbar">
             <div class="bwt-tool-group" style="flex-wrap: wrap;">
-              <span class="bwt-label">Input String</span>
+              <label class="bwt-label" for="selString">Input String</label>
               <select id="selString" class="bwt-select">
                 <option value="banana^">banana^</option>
                 <option value="SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES^">SIX.MIXED.PIXIES...^</option>
                 <option value="abracadabra^">abracadabra^</option>
                 <option value="custom">Custom Input...</option>
               </select>
-              <input type="text" id="customInput" class="bwt-input" value="hello^" style="display:none; width: 150px;" maxlength="40" />
+              <input type="text" id="customInput" class="bwt-input" aria-label="Custom input string" value="hello^" style="display:none; width: 150px;" maxlength="40" />
             </div>
             
             <div class="bwt-tool-group">
-              <span class="bwt-label">Speed</span>
+              <label class="bwt-label" for="speedSlider">Speed</label>
               <input type="range" id="speedSlider" min="1" max="100" value="70" class="bwt-slider">
             </div>
 
