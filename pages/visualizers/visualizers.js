@@ -924,6 +924,13 @@ const visualizers = [
 
   // ── AI & Machine Learning ──
   {
+    name: 'Simulated Annealing Schedules',
+    path: '/pages/visualizers/simulated-annealing-visualizer/simulated-annealing-visualizer.html',
+    category: 'AI & Machine Learning',
+    icon: 'fa-temperature-empty',
+    desc: 'Deep-dive into cooling schedules for SA: Linear, Exponential, Logarithmic, and Adaptive optimization races.',
+  },
+  {
     name: 'CNN Layer & Feature Map Explorer',
     path: '/pages/visualizers/cnn-visualizer/cnn-visualizer.html',
     category: 'AI & ML',
