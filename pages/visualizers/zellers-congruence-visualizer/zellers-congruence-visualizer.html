@@ -56,9 +56,9 @@
         <div class="zel-control-card">
           <div class="zel-toolbar">
             <div class="zel-tool-group" style="flex-wrap: wrap">
-              <span class="zel-label">Select Date</span>
-              <input type="date" id="datePicker" class="zel-input" value="1969-07-20" />
-              <select id="selPreset" class="zel-select">
+              <span class="zel-label" id="dateLabel">Select Date</span>
+              <input type="date" id="datePicker" class="zel-input" aria-labelledby="dateLabel" value="1969-07-20" />
+              <select id="selPreset" class="zel-select" aria-label="Preset historical dates">
                 <option value="1969-07-20">Apollo 11 Moon Landing (July 20, 1969)</option>
                 <option value="1776-07-04">US Independence (July 4, 1776)</option>
                 <option value="1900-02-28">1900 Leap Year Exception (Feb 28, 1900)</option>
