@@ -56,7 +56,7 @@
         <div class="isv-control-card">
           <div class="isv-toolbar">
             <div class="isv-tool-group">
-              <span class="isv-label">Distribution:</span>
+              <label class="isv-label" for="selDistribution">Distribution:</label>
               <select id="selDistribution" class="isv-select">
                 <option value="uniform">Uniform (Linear Spacing)</option>
                 <option value="exponential">Exponential (Right Skewed)</option>
@@ -65,8 +65,8 @@
             </div>
 
             <div class="isv-tool-group">
-              <span class="isv-label"
-                >Array Size: <span id="lblSize" style="color: #fff">100</span></span
+              <label class="isv-label" for="sliderSize"
+                >Array Size: <span id="lblSize" style="color: `#fff`">100</span></label
               >
               <input
                 type="range"
@@ -79,8 +79,8 @@
             </div>
 
             <div class="isv-tool-group">
-              <span class="isv-label"
-                >Target (Index): <span id="lblTarget" style="color: #fff">80</span></span
+              <label class="isv-label" for="sliderTarget"
+                >Target (Index): <span id="lblTarget" style="color: `#fff`">80</span></label
               >
               <input
                 type="range"
@@ -93,7 +93,7 @@
             </div>
 
             <div class="isv-tool-group">
-              <span class="isv-label">Speed</span>
+              <label class="isv-label" for="sliderSpeed">Speed</label>
               <input
                 type="range"
                 id="sliderSpeed"
