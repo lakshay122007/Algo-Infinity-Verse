@@ -293,8 +293,16 @@ function drawCanvases(){
     }
 }
 
-function animLoop(){
-    if(!isRunning) return;
+let raceToken = 0;
+
+function stopRace(){
+    isRunning = false;
+    if (animFrame) cancelAnimationFrame(animFrame);
+    raceToken++;
+}
+
+function animLoop(token){
+    if(!isRunning || token !== raceToken) return;
     
     let bsAlive = false;
     let isAlive = false;
@@ -312,7 +320,7 @@ function animLoop(){
     
     if(bsAlive || isAlive){
         let speed = 105 - parseInt(U('sliderSpeed').value);
-        setTimeout(()=>{ animFrame = requestAnimationFrame(animLoop); }, speed * 10);
+        setTimeout(()=>{ if (token === raceToken) animFrame = requestAnimationFrame(()=>animLoop(token)); }, speed * 10);
     } else {
         isRunning = false;
         
@@ -327,6 +335,7 @@ function animLoop(){
 }
 
 U('btnRace').addEventListener('click', ()=>{
+    stopRace();
     U('logConsole').innerHTML = '';
     generateArray();
     updateStatus('Race in progress...');
@@ -334,12 +343,13 @@ U('btnRace').addEventListener('click', ()=>{
     genBs = binarySearchGen();
     genIs = interpolationSearchGen();
     
-    if(animFrame) cancelAnimationFrame(animFrame);
     isRunning = true;
-    animLoop();
+    const token = raceToken;
+    animLoop(token);
 });
 
 U('sliderSize').addEventListener('input', (e)=>{
+    stopRace();
     U('lblSize').innerText = e.target.value;
     U('sliderTarget').max = e.target.value - 1;
     if(parseInt(U('sliderTarget').value) >= e.target.value){
@@ -350,11 +360,15 @@ U('sliderSize').addEventListener('input', (e)=>{
 });
 
 U('sliderTarget').addEventListener('input', (e)=>{
+    stopRace();
     U('lblTarget').innerText = e.target.value;
     generateArray();
 });
 
-U('selDistribution').addEventListener('change', generateArray);
+U('selDistribution').addEventListener('change', ()=>{
+    stopRace();
+    generateArray();
+});
 
 window.addEventListener('resize', drawCanvases);
 
