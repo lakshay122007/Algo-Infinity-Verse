@@ -157,7 +157,17 @@ function* interpolationSearchGen(){
         let p2 = arr[isState.hi] - arr[isState.lo];
         let p3 = isState.hi - isState.lo;
         
-        isState.pos = isState.lo + Math.floor((p1 / p2) * p3);
+        if (p2 === 0) {
+            // All values in [lo, hi] are identical; avoid dividing by zero.
+            if (arr[isState.lo] !== targetVal) {
+                isState.done = true;
+                logMsg(`[Interpolation] Target not found.`, 'warn');
+                return;
+            }
+            isState.pos = isState.lo;
+        } else {
+            isState.pos = isState.lo + Math.floor((p1 / p2) * p3);
+        }
         isState.probes++;
         U('statIsProbes').innerText = isState.probes;
         
