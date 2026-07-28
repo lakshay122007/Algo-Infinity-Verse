@@ -430,6 +430,11 @@ window.addEventListener('resize', drawGraph);
 
 document.addEventListener('DOMContentLoaded', ()=>{
     initHeroCanvas();
-    initChart();
+    try {
+        if(typeof Chart === 'function') initChart();
+        else logMsg('[Chart] Chart.js failed to load; complexity chart disabled.', 'warn');
+    } catch (err) {
+        console.error('Chart init failed', err);
+    }
     generateGraph();
 });
