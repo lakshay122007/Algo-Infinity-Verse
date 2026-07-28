@@ -297,7 +297,7 @@ function* pbftGenerator() {
   }
   yield;
 
-  if (honestReplies >= F + 1) {
+  if (F <= maxF && honestReplies >= maxF + 1) {
     updateStatus(`Consensus SUCCESS. Client received f+1 matching honest replies.`, 'done');
     U('statConsensus').innerText = 'Success';
     U('statConsensus').className = 'stat-val highlight';
