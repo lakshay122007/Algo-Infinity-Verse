@@ -407,7 +407,9 @@ U('sliderNodes').addEventListener('change', ()=>{
 });
 
 U('btnRace').addEventListener('click', ()=>{
-    if(isRunning) cancelAnimationFrame(animFrame);
+    isRunning = false;
+    cancelAnimationFrame(animFrame);
+    clearTimeout(animTimer);
     
     U('logConsole').innerHTML = '';
     bestCost = Infinity;
