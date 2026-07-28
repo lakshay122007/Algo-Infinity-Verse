@@ -312,7 +312,7 @@ function* heldKarpGen(){
             if(!(mask & (1 << i))) continue;
             
             for(let j=0; j<N; j++){
-                if(!(mask & (1 << j)) && dist[i][j] > 0){
+                if(!(mask & (1 << j)) && i !== j){
                     hkOps++;
                     let nextMask = mask | (1 << j);
                     let ncost = dp[mask][i] + dist[i][j];
