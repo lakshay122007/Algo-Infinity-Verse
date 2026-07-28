@@ -329,8 +329,7 @@ function* raftGenerator() {
   );
 
   for (let i = 1; i < N; i++) {
-    let isLying = nodes.find((n) => n.id === i.toString()).type === 'byzantine';
-    if (!isLying) spawnMessage('0', i.toString(), 'pre');
+    spawnMessage('0', i.toString(), 'pre');
   }
   yield;
 
