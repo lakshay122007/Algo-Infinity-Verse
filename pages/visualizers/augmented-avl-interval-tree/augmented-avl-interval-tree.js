@@ -395,6 +395,9 @@ function triggerAdd(adv = false) {
   currNode = null;
   prunedNodes = [];
   queryFound = [];
+  queryVisited = 0;
+  U('statVisited').innerText = '-';
+  U('statFound').innerText = '-';
 
   updateStatus(`Inserted [${low}, ${high}]. Balancing tree...`);
 
