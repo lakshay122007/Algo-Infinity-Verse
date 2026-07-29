@@ -82,12 +82,11 @@
         <div id="log" class="log"></div>
       </div>
     </div>
-    
     <div class="anomaly-layout" style="margin-top: 2rem; background: var(--panel-bg, rgba(255,255,255,0.05)); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
       <h3>📈 Belady's Anomaly Plotter (Page Faults vs Frames)</h3>
-      <p style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 1rem;">Simulates the current reference string across 1 to 10 frames instantly. Look for upward spikes where increasing frames causes more faults!</p>
+      <p style="font-size: 0.9rem; color: `#9ca3af`; margin-bottom: 1rem;">Simulates the current reference string across 1 to 10 frames instantly. Look for upward spikes where increasing frames causes more faults!</p>
       <div class="chart-container" style="height: 300px; width: 100%;">
-        <canvas id="anomalyChart"></canvas>
+        <canvas id="anomalyChart" role="img" aria-label="Page faults versus number of frames; red points/segments mark Belady's anomaly"></canvas>
       </div>
     </div>
   </div>
