@@ -255,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let faultCounts = [];
     let frameLabels = [];
     let pointColors = [];
-    let segmentColors = [];
 
     // Headless simulation
     for (let f = 1; f <= maxFrames; f++) {
