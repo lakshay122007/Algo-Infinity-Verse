@@ -475,7 +475,15 @@ function renderSpace(spaceArray, prefix, containerEl, capEl, currentLivingObject
       if (!objEl) {
         objEl = document.createElement('div');
         objEl.id = `obj-${obj.id}`;
+        objEl.setAttribute('role', 'button');
+        objEl.tabIndex = 0;
         objEl.addEventListener('click', () => toggleObjectLiveness(obj.id));
+        objEl.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleObjectLiveness(obj.id);
+          }
+        });
         DOM_OBJECTS.set(obj.id, objEl);
       }
 
@@ -491,6 +499,8 @@ function renderSpace(spaceArray, prefix, containerEl, capEl, currentLivingObject
       }
       objEl.className = classes;
 
+      const stateLabel = obj.isLive ? (obj.isTenured ? 'tenured' : 'live') : 'dead (garbage)';
+      objEl.setAttribute('aria-label', `Object #${obj.id}, age ${obj.age}, ${stateLabel}`);
       objEl.innerHTML = `
                 <span class="obj-id">#${obj.id}</span>
                 <span class="obj-age">Age ${obj.age}</span>
