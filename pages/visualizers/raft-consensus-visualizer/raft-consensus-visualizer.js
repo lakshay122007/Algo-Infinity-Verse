@@ -40,7 +40,7 @@ let leaderId = null;
 let partitionedIds = new Set();
 let preVoteEnabled = true;
 
-let canvas, ctx, animFrame;
+let canvas, ctx;
 let packets = []; // flying messages
 let electionTimers = {};
 let heartbeatTimer = null;
@@ -59,6 +59,7 @@ const els = {
   btnPartitionLeader: document.getElementById('btnPartitionLeader'),
   btnHealPartition: document.getElementById('btnHealPartition'),
   btnCompactLog: document.getElementById('btnCompactLog'),
+  btnElectionRace: document.getElementById('btnElectionRace'),
   nodeCountSelect: document.getElementById('nodeCountSelect'),
   electionTimeout: document.getElementById('electionTimeout'),
   electionTimeoutVal: document.getElementById('electionTimeoutVal'),
@@ -265,6 +266,7 @@ function initRaft() {
     firewallLine = null;
     log('Firewall cleared. Partitions resolving...', 'info');
   });
+  els.btnElectionRace.addEventListener('click', simulateElectionRace);
 
   canvas.addEventListener('mousedown', (e) => {
     isDrawingFirewall = true;
@@ -326,6 +328,7 @@ function startCluster() {
   els.btnPartitionLeader.disabled = false;
   els.btnHealPartition.disabled = false;
   els.btnCompactLog.disabled = false;
+  els.btnElectionRace.disabled = false;
 }
 
 function spawnNodes(count) {
@@ -453,13 +456,15 @@ function promoteToCandidateAndVote(candidateId) {
     );
   });
 
-  // Timeout if no majority
+  // Timeout if no majority (using configured timeout + random jitter to resolve split votes)
+  const baseTimeout = parseInt(els.electionTimeout.value, 10) || 2500;
+  const jitter = Math.random() * 1000;
   setTimeout(() => {
     if (candidate.role === ROLES.CANDIDATE) {
       log(`${candidate.name} election timed out. Retrying...`, 'warn');
       startElection(candidateId);
     }
-  }, 2500);
+  }, baseTimeout + jitter);
 }
 
 function becomeLeader(nodeId) {
@@ -626,6 +631,29 @@ function partitionLeader() {
   }
 }
 
+function simulateElectionRace() {
+  if (leaderId !== null) {
+    const leader = nodes[leaderId];
+    partitionedIds.add(leaderId);
+    leader.role = ROLES.PARTITIONED;
+    if (heartbeatTimer) clearInterval(heartbeatTimer);
+    heartbeatTimer = null;
+    leaderId = null;
+    log(`⚠ Leader partitioned for election race!`, 'warn');
+    updateStats();
+  }
+
+  const remaining = nodes.filter((n) => n.role !== ROLES.PARTITIONED && !partitionedIds.has(n.id));
+  if (remaining.length > 1) {
+    log(`🏁 Triggering simultaneous election timeout for ${remaining.length} nodes!`, 'warn');
+    remaining.forEach((node) => {
+      startElection(node.id);
+    });
+  } else {
+    log('Not enough nodes to simulate an election race.', 'warn');
+  }
+}
+
 function healPartition() {
   partitionedIds.forEach((id) => {
     const node = nodes[id];
@@ -752,7 +780,7 @@ function renderLoop(time) {
   // Draw nodes
   nodes.forEach((n) => n.draw(ctx));
 
-  animFrame = requestAnimationFrame(renderLoop);
+  requestAnimationFrame(renderLoop);
 }
 
 // ══════════════════════════════════════════════
