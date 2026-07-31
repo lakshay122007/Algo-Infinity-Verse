@@ -8,7 +8,7 @@
       name="description"
       content="Interactive Skip List visualizer — insert, search, delete with animated multi-level traversal and probabilistic level generation."
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="../../../styles.css" />
     <link rel="stylesheet" href="skip-list-visualizer.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
@@ -18,7 +18,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="/modules/quick-notes/quick-notes.css" />
+    <link rel="stylesheet" href="../../../modules/quick-notes/quick-notes.css" />
   </head>
   <body data-page="skip-list-visualizer">
     <div id="loading-screen" class="hidden">
@@ -318,22 +318,22 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="/auth.js"></script>
-    <script src="/bootstrap-legacy.js"></script>
+    <script src="../../../auth.js"></script>
+    <script src="../../../bootstrap-legacy.js"></script>
 
-    <script src="/script.js"></script>
-    <script type="module" src="/dist/legacy-bundle.mjs"></script>
-    <script src="/theme.js"></script>
-    <script src="/auth-gate.js"></script>
+    <script src="../../../script.js"></script>
+    <script type="module" src="../../../dist/legacy-bundle.mjs"></script>
+    <script src="../../../theme.js"></script>
+    <script src="../../../auth-gate.js"></script>
     <script src="skip-list-visualizer.js"></script>
     <script>
       if (typeof loadPartial === 'function') {
-        loadPartial('navbar-placeholder', '/partials/navbar.html').then(function () {
+        loadPartial('navbar-placeholder', '../../../partials/navbar.html').then(function () {
           if (typeof initNavbar === 'function') initNavbar();
         });
-        loadPartial('footer-placeholder', '/partials/footer.html');
+        loadPartial('footer-placeholder', '../../../partials/footer.html');
       }
     </script>
-    <script src="/modules/quick-notes/quick-notes.js"></script>
+    <script src="../../../modules/quick-notes/quick-notes.js"></script>
   </body>
 </html>
