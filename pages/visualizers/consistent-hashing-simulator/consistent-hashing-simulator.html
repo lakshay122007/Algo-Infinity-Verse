@@ -29,7 +29,9 @@
         <div class="ch-eyebrow">Distributed Systems Architecture</div>
         <h1 class="ch-title">Consistent Hashing</h1>
         <p class="ch-desc">
-          Visualize how distributed databases map keys to nodes on a hash ring. Discover the fatal flaw of <strong>Cascading Failures</strong>, and physically see how <strong>Virtual Nodes</strong> mathematically rescue clusters under extreme load.
+          Visualize how distributed databases map keys to nodes on a hash ring. Discover the fatal
+          flaw of <strong>Cascading Failures</strong>, and physically see how
+          <strong>Virtual Nodes</strong> mathematically rescue clusters under extreme load.
         </p>
       </div>
     </section>
@@ -37,21 +39,26 @@
     <div class="ch-dashboard container">
       <!-- Top Layout: Controls and Cluster Health -->
       <div class="ch-top-grid">
-        
         <!-- Controls Panel -->
         <div class="ch-panel glass-panel">
           <div class="ch-panel-header"><i class="fas fa-server"></i> Cluster Controls</div>
-          
+
           <div class="ch-control-group">
             <label>Physical Node Management</label>
             <div class="ch-btn-group">
-              <button class="btn btn-primary" id="btnAddNode"><i class="fas fa-plus"></i> Add Node</button>
-              <button class="btn btn-secondary" id="btnRemoveNode"><i class="fas fa-minus"></i> Remove Node</button>
+              <button class="btn btn-primary" id="btnAddNode">
+                <i class="fas fa-plus"></i> Add Node
+              </button>
+              <button class="btn btn-secondary" id="btnRemoveNode">
+                <i class="fas fa-minus"></i> Remove Node
+              </button>
             </div>
           </div>
 
           <div class="ch-control-group mt-4 border-top">
-            <label class="text-success"><i class="fas fa-network-wired"></i> Virtual Nodes (vNodes)</label>
+            <label class="text-success"
+              ><i class="fas fa-network-wired"></i> Virtual Nodes (vNodes)</label
+            >
             <div class="toggle-row">
               <span class="text-sm">Map 4 Virtual Replicas per Physical Node</span>
               <label class="switch">
@@ -59,7 +66,9 @@
                 <span class="slider round"></span>
               </label>
             </div>
-            <p class="ch-hint mt-2">vNodes slice the hash space evenly, dispersing load fairly across the cluster.</p>
+            <p class="ch-hint mt-2">
+              vNodes slice the hash space evenly, dispersing load fairly across the cluster.
+            </p>
           </div>
 
           <div class="ch-control-group mt-4 border-top">
@@ -67,19 +76,24 @@
             <button class="btn btn-danger w-100 mb-2" id="btnTrafficSpike">
               <i class="fas fa-bolt"></i> Trigger Targeted Traffic Spike
             </button>
-            <p class="ch-hint">Pumps 150 keys into a concentrated hash sector. Watch out for cascading meltdowns!</p>
+            <p class="ch-hint">
+              Pumps 150 keys into a concentrated hash sector. Watch out for cascading meltdowns!
+            </p>
           </div>
 
           <div class="ch-control-group mt-4 border-top">
-            <button class="btn btn-warning w-100" id="btnResetCluster"><i class="fas fa-sync"></i> Hard Reset Cluster</button>
+            <button class="btn btn-warning w-100" id="btnResetCluster">
+              <i class="fas fa-sync"></i> Hard Reset Cluster
+            </button>
           </div>
-
         </div>
 
         <!-- Health Dashboard -->
         <div class="ch-panel glass-panel">
-          <div class="ch-panel-header"><i class="fas fa-heartbeat"></i> Cluster Health & Load Balance</div>
-          
+          <div class="ch-panel-header">
+            <i class="fas fa-heartbeat"></i> Cluster Health & Load Balance
+          </div>
+
           <div class="ch-stats-grid mb-3">
             <div class="ch-stat-card">
               <div class="stat-label">Physical Nodes</div>
@@ -100,23 +114,26 @@
               <span class="text-sm font-orbitron">Load Distribution Variance (StdDev)</span>
               <span class="text-sm font-fira text-primary" id="statVariance">0.00</span>
             </div>
-            <p class="ch-hint mb-3">Lower variance means fairer distribution. Watch vNodes flatten this chart.</p>
+            <p class="ch-hint mb-3">
+              Lower variance means fairer distribution. Watch vNodes flatten this chart.
+            </p>
             <div class="ch-bar-chart" id="varianceChart">
               <!-- Bars injected dynamically -->
             </div>
           </div>
-          
+
           <div class="ch-log-container mt-4" id="chLog">
             <!-- Event Logs -->
           </div>
-
         </div>
       </div>
 
       <!-- Bottom Layout: Visualizer Canvas -->
       <div class="ch-panel glass-panel mt-4 ch-visualizer-panel">
-        <div class="ch-panel-header"><i class="fas fa-circle-notch"></i> The Hash Ring <code>[0, 360°)</code></div>
-        
+        <div class="ch-panel-header">
+          <i class="fas fa-circle-notch"></i> The Hash Ring <code>[0, 360°)</code>
+        </div>
+
         <div class="ch-legend">
           <div class="ch-leg-item"><span class="ch-dot dot-node"></span> Physical Node</div>
           <div class="ch-leg-item"><span class="ch-dot dot-vnode"></span> Virtual Node</div>
@@ -125,11 +142,10 @@
         </div>
 
         <div class="ch-ring-wrapper" id="ringWrapper">
-           <!-- Rendered via HTML5 Canvas -->
-           <canvas id="chCanvas"></canvas>
+          <!-- Rendered via HTML5 Canvas -->
+          <canvas id="chCanvas"></canvas>
         </div>
       </div>
-
     </div>
 
     <div id="footer-placeholder"></div>
