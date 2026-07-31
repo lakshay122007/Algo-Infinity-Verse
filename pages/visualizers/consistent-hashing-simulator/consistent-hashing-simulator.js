@@ -381,17 +381,19 @@ function renderLoop() {
   }
 
   // 4. Draw Physical Nodes
+  const aliveCount = state.physicalNodes.filter((n) => n.status === 'alive').length || 1;
+
   state.physicalNodes.forEach((n) => {
     if (n.status === 'alive') {
       const loadPct = n.keys.length / NODE_CAPACITY;
-      let color = '#3b82f6';
-      if (loadPct > 0.8) color = '#f59e0b';
+      let color = '`#3b82f6`';
+      if (loadPct > 0.8) color = '`#f59e0b`';
 
       drawPoint(n.angle, 0, color, 12, false, n.id);
 
       // Draw load arc
       const radStart = (n.angle - 90) * (Math.PI / 180);
-      const loadArc = Math.PI * 2 * (1 / state.physicalNodes.length) * loadPct; // Rough visual approx
+      const loadArc = Math.PI * 2 * (1 / aliveCount) * loadPct; // Rough visual approx
 
       ctx.beginPath();
       ctx.arc(cx, cy, radius + 25, radStart, radStart + loadArc);
