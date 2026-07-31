@@ -301,7 +301,8 @@
 
 .sl-canvas {
   display: block;
-  width: 100%;
+  width: auto;
+  min-width: 100%;
 }
 
 .sl-canvas-empty {
