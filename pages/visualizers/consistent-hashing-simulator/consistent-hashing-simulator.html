@@ -122,7 +122,13 @@
             </div>
           </div>
 
-          <div class="ch-log-container mt-4" id="chLog">
+          <div
+            class="ch-log-container mt-4"
+            id="chLog"
+            role="log"
+            aria-live="polite"
+            aria-label="Cluster event log"
+          >
             <!-- Event Logs -->
           </div>
         </div>
@@ -143,7 +149,11 @@
 
         <div class="ch-ring-wrapper" id="ringWrapper">
           <!-- Rendered via HTML5 Canvas -->
-          <canvas id="chCanvas"></canvas>
+          <canvas
+            id="chCanvas"
+            role="img"
+            aria-label="Hash ring visualization. Read the cluster health metrics and event log for the same information in text form."
+          ></canvas>
         </div>
       </div>
     </div>
