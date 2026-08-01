@@ -399,12 +399,14 @@ function renderOutput() {
 // 6. TOOLTIPS & MATH INSPECTOR
 // ==========================================
 
+const CANVAS_PAD = 4; // Matches .canvas-container padding in cnn-visualizer.css
+
 function positionSlidingWindow(r, c) {
   els.window.style.display = 'block';
   els.window.style.width = `${K_SIZE * PIXEL_SCALE_IN}px`;
   els.window.style.height = `${K_SIZE * PIXEL_SCALE_IN}px`;
-  els.window.style.left = `${c * PIXEL_SCALE_IN}px`;
-  els.window.style.top = `${r * PIXEL_SCALE_IN}px`;
+  els.window.style.left = `${c * PIXEL_SCALE_IN + CANVAS_PAD}px`;
+  els.window.style.top = `${r * PIXEL_SCALE_IN + CANVAS_PAD}px`;
 }
 
 function handleTooltip(e) {
