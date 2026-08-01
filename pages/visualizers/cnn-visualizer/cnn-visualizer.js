@@ -168,8 +168,9 @@ function setMode(mode) {
     els.btnStep.classList.add('active');
     els.btnNext.style.display = 'block';
     state.stepPos = { r: 0, c: 0 };
-    // Reset conv out to black
+    // Reset conv and pool outputs to black
     state.convOut = createMatrix(OUT_SIZE, OUT_SIZE);
+    state.poolOut = createMatrix(POOL_SIZE, POOL_SIZE);
     renderOutput();
   }
 }
